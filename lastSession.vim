@@ -217,7 +217,7 @@ set wildmenu
 let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
 silent only
-cd ~/Projects
+cd ~/.vim
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
@@ -230,19 +230,10 @@ wincmd t
 set winheight=1 winwidth=1
 argglobal
 enew
-let s:cpo_save=&cpo
-set cpo&vim
-inoremap <buffer> <silent> <BS> =XPPshorten()
-inoremap <buffer> <silent> <Down> =XPPdown()
-inoremap <buffer> <silent> <Up> =XPPup()
 onoremap <buffer> <silent> [[ ?\(.*\%#\)\@!\_^\s*\zs\(\(abstract\s\+\|final\s\+\|private\s\+\|protected\s\+\|public\s\+\|static\s\+\)*function\|\(abstract\s\+\|final\s\+\)*class\|interface\)?:nohls
 nnoremap <buffer> <silent> [[ ?\(.*\%#\)\@!\_^\s*\zs\(\(abstract\s\+\|final\s\+\|private\s\+\|protected\s\+\|public\s\+\|static\s\+\)*function\|\(abstract\s\+\|final\s\+\)*class\|interface\)?:nohls
 onoremap <buffer> <silent> ]] /\(.*\%#\)\@!\_^\s*\zs\(\(abstract\s\+\|final\s\+\|private\s\+\|protected\s\+\|public\s\+\|static\s\+\)*function\|\(abstract\s\+\|final\s\+\)*class\|interface\)/:nohls
 nnoremap <buffer> <silent> ]] /\(.*\%#\)\@!\_^\s*\zs\(\(abstract\s\+\|final\s\+\|private\s\+\|protected\s\+\|public\s\+\|static\s\+\)*function\|\(abstract\s\+\|final\s\+\)*class\|interface\)/:nohls
-inoremap <buffer> <silent>  =XPPcancel()
-inoremap <buffer> <silent> 	 =XPPenlarge()
-inoremap <buffer> <silent>  =XPPcr()
-inoremap <buffer> <silent>  =XPPaccept()
 lnoremap <buffer> " Э
 lnoremap <buffer> # №
 lnoremap <buffer> $ ;
@@ -267,6 +258,8 @@ lnoremap <buffer> G П
 lnoremap <buffer> H Р
 lnoremap <buffer> I Ш
 lnoremap <buffer> J О
+let s:cpo_save=&cpo
+set cpo&vim
 lnoremap <buffer> K Л
 lnoremap <buffer> L Д
 lnoremap <buffer> M Ь
@@ -327,7 +320,7 @@ setlocal bufhidden=
 setlocal buflisted
 setlocal buftype=
 setlocal nocindent
-setlocal cinkeys=
+setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
 setlocal cinoptions=
 setlocal cinwords=if,else,while,do,for,switch
 setlocal comments=s:<!--,m:\ \ \ \ ,e:-->
@@ -365,7 +358,7 @@ setlocal imsearch=-1
 setlocal include=\\(require\\|include\\)\\(_once\\)\\?
 setlocal includeexpr=
 setlocal indentexpr=
-setlocal indentkeys=
+setlocal indentkeys=0{,0},:,0#,!^F,o,O,e
 setlocal noinfercase
 setlocal iskeyword=@,48-57,_,192-255
 setlocal keywordprg=
@@ -396,7 +389,7 @@ setlocal nospell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=en
-setlocal statusline=%#Visual#[1-!]%##%=%-14.(%l,%c%V%)\ %P%{XPMautoUpdate(\"statusline\")}
+setlocal statusline=%#Visual#[1-!]%##%=%-14.(%l,%c%V%)\ %P
 setlocal suffixesadd=
 setlocal swapfile
 setlocal synmaxcol=3000
