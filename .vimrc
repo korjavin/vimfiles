@@ -19,7 +19,7 @@ map <S-F4> :tabclose<CR>
 map <F1> :tabprevious<CR>
 map <F2> :tabnext<CR>
 map <F3> :tabnew<CR>
-map <F4> :bdelete<CR>
+map <F4> :NERDTreeClose<CR>:bdelete<CR>
 map <F10> :mksession! ~/.vim/chess.session<CR>
 colorscheme symfony
 map <F11> :colorscheme zellner<CR>
@@ -192,3 +192,9 @@ filetype plugin on
   set laststatus=2 
   let g:buftabs_in_statusline=1 
   let g:buftabs_active_highlight_group="Visual" 
+
+
+set dir=~/tmp/
+
+let NERDTreeQuitOnOpen=1
+let g:buftabs_only_basename=1
