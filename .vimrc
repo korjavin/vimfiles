@@ -16,11 +16,14 @@ map <C-UP> :tabprevious<CR>
 map <C-DOWN> :tabnext<CR>
 map <S-F3> :tabnew<CR>
 map <S-F4> :tabclose<CR>
-map <F1> :tabprevious<CR>
-map <F2> :tabnext<CR>
+"map <F1> :tabprevious<CR>
+"map <F2> :tabnext<CR>
+map <F1> :bprev<CR>
+map <F2> :bnext<CR> 
 map <F3> :tabnew<CR>
 map <F4> :NERDTreeClose<CR>:bdelete<CR>
-map <F10> :mksession! ~/.vim/chess.session<CR>
+"map <F10> :mksession! ~/.vim/chess.session<CR>
+map <F10> :quitall! <CR>
 colorscheme symfony
 map <F11> :colorscheme zellner<CR>
 map <F12> :colorscheme tango<CR>
