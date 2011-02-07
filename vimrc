@@ -201,3 +201,30 @@ set dir=~/tmp/
 
 let NERDTreeQuitOnOpen=1
 let g:buftabs_only_basename=1
+
+set showcmd     "show incomplete cmds down the bottom
+set showmode    "show current mode down the bottom
+
+set showbreak=...
+set wrap linebreak nolist
+
+set linespace=4
+set visualbell t_vb=
+
+"folding settings
+set foldmethod=indent   "fold based on indent
+set foldnestmax=3       "deepest fold is 3 levels
+set nofoldenable        "dont fold by default
+
+set wildmode=list:longest   "make cmdline tab completion similar to bash
+set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
+set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
+
+set formatoptions-=o "dont continue comments when pushing o/O
+
+set scrolloff=3
+set sidescrolloff=7
+set sidescroll=1
+
+
+
