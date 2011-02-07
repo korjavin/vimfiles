@@ -67,7 +67,6 @@ hi CursorLine guibg=#dbdbdb gui=none
 map <F6> :setlocal cursorline!<cr>
 "autocmd InsertEnter * hi Normal guibg=green
 "autocmd InsertLeave * hi Normal guibg=blue
-set title
 set keymap=russian-jcukenwin
 set iminsert=0
 set imsearch=-1
@@ -108,6 +107,7 @@ nnoremap <leader>es :w! /tmp/sudoSave \| let $fileToSave=expand('%') \| let $fil
 
 " Yaml
 au BufNewFile,BufRead *.yaml,*.yml    setf yaml
+au BufNewFile,BufRead *.twig    setf jinja
 
 
 
