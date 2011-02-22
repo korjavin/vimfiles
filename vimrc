@@ -14,8 +14,8 @@ set incsearch
 set hidden
 map <C-UP> :tabprevious<CR>
 map <C-DOWN> :tabnext<CR>
-map <S-F3> :tabnew<CR>
-map <S-F4> :tabclose<CR>
+map <S-F3> :tabprevious<CR>
+map <S-F4> :tabnext<CR>
 "map <F1> :tabprevious<CR>
 "map <F2> :tabnext<CR>
 map <F1> :bprev<CR>
@@ -230,3 +230,6 @@ set autoread
 
 
 let g:SuperTabDefaultCompletionType = "context"
+
+let twitvim_enable_perl = 1
+let twitvim_browser_cmd = 'iceweasel'
