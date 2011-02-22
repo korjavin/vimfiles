@@ -229,4 +229,4 @@ set sidescroll=1
 set autoread
 
 
-
+let g:SuperTabDefaultCompletionType = "context"
