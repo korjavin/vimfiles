@@ -63,7 +63,7 @@ menu Encoding.utf-8 :e ++enc=utf-8<CR>
 " ucs-bom
 map <F9> :emenu Encoding.<TAB>
 set t_Co=255
-hi CursorLine guibg=#dbdbdb gui=none
+"hi CursorLine guibg=#dbdbdb gui=none
 map <F6> :setlocal cursorline!<cr>
 "autocmd InsertEnter * hi Normal guibg=green
 "autocmd InsertLeave * hi Normal guibg=blue
@@ -75,12 +75,12 @@ set statusline=%t\ %y%m%r[%{&fileencoding}]%<[%{strftime(\"%d.%m.%y\",getftime(e
 set listchars+=tab:>-,trail:-,extends:>,precedes:<,nbsp:%
 set clipboard+=unnamed
 set pastetoggle=<F1>
-autocmd InsertEnter * set cursorline
-autocmd InsertEnter * highlight StatusLine ctermbg=52
-autocmd InsertLeave * highlight StatusLine ctermbg=8 
-autocmd InsertLeave * set nocursorline
-autocmd CmdwinEnter * highlight StatusLine ctermbg=82
-autocmd CmdwinLeave * highlight StatusLine ctermbg=8
+"autocmd InsertEnter * set cursorline
+"autocmd InsertEnter * highlight StatusLine ctermbg=52
+"autocmd InsertLeave * highlight StatusLine ctermbg=8 
+"autocmd InsertLeave * set nocursorline
+"autocmd CmdwinEnter * highlight StatusLine ctermbg=82
+"autocmd CmdwinLeave * highlight StatusLine ctermbg=8
 map <c-w>] <c-w>]:tab split<cr>gT:q<cr>gt
 "function! DiffWithFileFromDisk()
 "  let filename=expand('%')
@@ -107,7 +107,7 @@ nnoremap <leader>es :w! /tmp/sudoSave \| let $fileToSave=expand('%') \| let $fil
 
 " Yaml
 au BufNewFile,BufRead *.yaml,*.yml    setf yaml
-au BufNewFile,BufRead *.twig    setf jinja
+au BufNewFile,BufRead *.twig    setf htmljinja
 
 
 
@@ -200,6 +200,7 @@ filetype plugin on
 set dir=~/tmp/
 
 let NERDTreeQuitOnOpen=1
+let NERDTreeHighlightCursorline=0
 let g:buftabs_only_basename=1
 
 set showcmd     "show incomplete cmds down the bottom
@@ -225,6 +226,7 @@ set formatoptions-=o "dont continue comments when pushing o/O
 set scrolloff=3
 set sidescrolloff=7
 set sidescroll=1
+set autoread
 
 
 
