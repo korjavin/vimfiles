@@ -233,3 +233,4 @@ let g:SuperTabDefaultCompletionType = "context"
 
 let twitvim_enable_perl = 1
 let twitvim_browser_cmd = 'iceweasel'
+

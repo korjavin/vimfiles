@@ -1954,11 +1954,11 @@ endif
 noremap <SID>Visual y:call <SID>post_twitter(@", 0)<cr>
 noremap <unique> <script> <Plug>TwitvimVisual <SID>Visual
 if !hasmapto('<Plug>TwitvimVisual')
-    vmap <unique> <A-t> <Plug>TwitvimVisual
+"    vmap <unique> <A-t> <Plug>TwitvimVisual
 
     " Allow Ctrl-T as an alternative to Alt-T.
     " Alt-T pulls down the Tools menu if the menu bar is enabled.
-    vmap <unique> <C-t> <Plug>TwitvimVisual
+"    vmap <unique> <C-t> <Plug>TwitvimVisual
 endif
 
 vmenu Plugin.TwitVim.Post\ selection <Plug>TwitvimVisual
