@@ -61,7 +61,7 @@ menu Encoding.cp866 :e ++enc=ibm866<CR>
 menu Encoding.utf-8 :e ++enc=utf-8<CR>
 " ucs-2le
 " ucs-bom
-map <F9> :emenu Encoding.<TAB>
+"map <F9> :emenu Encoding.<TAB>
 set t_Co=255
 "hi CursorLine guibg=#dbdbdb gui=none
 map <F6> :setlocal cursorline!<cr>
@@ -230,3 +230,7 @@ set autoread
 
 
 let g:SuperTabDefaultCompletionType = "context"
+
+let twitvim_enable_perl = 1
+let twitvim_browser_cmd = 'x-www-browser'
+
