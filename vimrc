@@ -12,6 +12,11 @@ set ic
 syntax on
 set incsearch
 set hidden
+
+set ttyfast
+set list!
+set listchars=trail:·,tab:>-
+
 map <C-UP> :tabprevious<CR>
 map <C-DOWN> :tabnext<CR>
 map <S-F3> :tabnew<CR>
@@ -36,7 +41,17 @@ noremap <F7> :set hlsearch!<cr>
 noremap <F8> :NERDTreeToggle<cr>
 noremap <S-F8> :Tlist<cr>
 "map <F5> :set si! si?<CR>
-map <F5> :Sview<CR>
+"imap <F5> :Sview<CR>
+"
+    map <F5>  <esc>:call SWITCHFOLD()<cr>
+    function! SWITCHFOLD()
+        if &foldmethod=="syntax"
+            set foldmethod=indent
+            return
+        endif
+        set foldmethod=syntax
+    endfunction
+
 set completeopt+=longest
   let g:miniBufExplMapWindowNavVim = 1
   let g:miniBufExplMapWindowNavArrows = 1
@@ -231,7 +246,21 @@ set autoread
 
 let g:SuperTabDefaultCompletionType = "context"
 
-let twitvim_enable_perl = 1
-let twitvim_browser_cmd = 'x-www-browser'
 
+" Perl stuff
+autocmd FileType perl match ErrorMsg '\%>78v.\+'
+autocmd FileType perl set autowrite
+autocmd FileType perl set errorformat=%f:%l:%m
+autocmd FileType perl set makeprg=perl\ -c\ %\ $*
 autocmd FileType perl setlocal equalprg=perltidy
+autocmd FileType perl setlocal foldmethod=syntax
+autocmd BufNewFile,BufRead *.p[lm] compiler perl
+
+let perl_fold = 1
+let perl_fold_blocks = 1
+let perl_sync_dist = 400
+
+let perl_nofold_packages = 1
+let perl_include_pod = 1
+
+let perl_extended_vars  = 1
