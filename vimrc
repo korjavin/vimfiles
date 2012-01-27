@@ -86,7 +86,7 @@ set keymap=russian-jcukenwin
 set iminsert=0
 set imsearch=-1
 set shortmess=tToOI
-set statusline=%t\ %y%m%r[%{&fileencoding}]%<[%{strftime(\"%d.%m.%y\",getftime(expand(\"%:p\")))}]%k%=%-14.(%l,%c%V%)\ %P
+"set statusline=%t\ %y%m%r[%{&fileencoding}]%<[%{strftime(\"%d.%m.%y\",getftime(expand(\"%:p\")))}]%k%=%-14.(%l,%c%V%)\ %P
 set listchars+=tab:>-,trail:-,extends:>,precedes:<,nbsp:%
 set clipboard+=unnamed
 set pastetoggle=<F1>
@@ -208,7 +208,7 @@ filetype plugin on
   noremap <C-left> :bprev<CR>
   noremap <C-right> :bnext<CR> 
   set laststatus=2 
-  let g:buftabs_in_statusline=1 
+"  let g:buftabs_in_statusline=1 
   let g:buftabs_active_highlight_group="Visual" 
 
 
@@ -221,8 +221,8 @@ let g:buftabs_only_basename=1
 set showcmd     "show incomplete cmds down the bottom
 set showmode    "show current mode down the bottom
 
-set showbreak=...
-set wrap linebreak nolist
+"set showbreak=...
+"set wrap linebreak nolist
 
 set linespace=4
 set visualbell t_vb=
@@ -248,7 +248,7 @@ let g:SuperTabDefaultCompletionType = "context"
 
 
 " Perl stuff
-autocmd FileType perl match ErrorMsg '\%>78v.\+'
+"autocmd FileType perl match ErrorMsg '\%>78v.\+'
 autocmd FileType perl set autowrite
 autocmd FileType perl set errorformat=%f:%l:%m
 autocmd FileType perl set makeprg=perl\ -c\ %\ $*
@@ -264,3 +264,17 @@ let perl_nofold_packages = 1
 let perl_include_pod = 1
 
 let perl_extended_vars  = 1
+
+let g:vimwiki_list = [{'path': '~/.vimwiki/'}]
+
+"vundle
+
+filetype off                   " required!
+set rtp+=~/.vim/bundle/vundle/
+ call vundle#rc()
+
+Bundle 'gmarik/vundle'
+Bundle 'Lokaltog/vim-powerline'
+"Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+
+filetype plugin indent on     " required!
