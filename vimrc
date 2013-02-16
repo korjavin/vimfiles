@@ -15,7 +15,7 @@ set hidden
 
 set ttyfast
 set list!
-set listchars=trail:·,tab:>-
+set listchars=trail:.,tab:>-
 
 map <C-UP> :tabprevious<CR>
 map <C-DOWN> :tabnext<CR>
@@ -24,7 +24,7 @@ map <S-F4> :tabclose<CR>
 "map <F1> :tabprevious<CR>
 "map <F2> :tabnext<CR>
 map <F1> :bprev<CR>
-map <F2> :bnext<CR> 
+map <F2> :bnext<CR>
 map <F3> :tabnew<CR>
 map <F4> :NERDTreeClose<CR>:bdelete<CR>
 "map <F10> :mksession! ~/.vim/chess.session<CR>
@@ -92,7 +92,7 @@ set clipboard+=unnamed
 set pastetoggle=<F1>
 "autocmd InsertEnter * set cursorline
 "autocmd InsertEnter * highlight StatusLine ctermbg=52
-"autocmd InsertLeave * highlight StatusLine ctermbg=8 
+"autocmd InsertLeave * highlight StatusLine ctermbg=8
 "autocmd InsertLeave * set nocursorline
 "autocmd CmdwinEnter * highlight StatusLine ctermbg=82
 "autocmd CmdwinLeave * highlight StatusLine ctermbg=8
@@ -107,14 +107,14 @@ map <c-w>] <c-w>]:tab split<cr>gT:q<cr>gt
 "  diffthis
 "endfunction
 ":nmap <F7> :call DiffWithFileFromDisk()<cr>
-"map <C-Up> :bn<Return> 
-"map <C-Down> :bp<Return> 
+"map <C-Up> :bn<Return>
+"map <C-Down> :bp<Return>
 set fileencodings=ucs-bom,utf-8,cp1251,koi8-r,ibm866,default,latin1
 retab
-set expandtab 
-set tabstop=4 
-set shiftwidth=4 
-set softtabstop=4 
+set expandtab
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
 set backspace=indent,eol,start
 set timeout timeoutlen=3000 ttimeoutlen=100
 
@@ -200,16 +200,16 @@ let g:snippetsEmu_key="<S-Tab>"
 
 
 "au FileType php set omnifunc=phpcomplete
-let php_sql_query=1                                                                                        
+let php_sql_query=1
 let php_htmlInStrings=1
 filetype plugin on
 
 "buff
   noremap <C-left> :bprev<CR>
-  noremap <C-right> :bnext<CR> 
-  set laststatus=2 
-"  let g:buftabs_in_statusline=1 
-  let g:buftabs_active_highlight_group="Visual" 
+  noremap <C-right> :bnext<CR>
+  set laststatus=2
+"  let g:buftabs_in_statusline=1
+  let g:buftabs_active_highlight_group="Visual"
 
 
 set dir=~/tmp/
