@@ -274,13 +274,13 @@ set rtp+=~/.vim/bundle/vundle/
  call vundle#rc()
 
 Bundle 'gmarik/vundle'
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'molokai'
+"Bundle 'Lokaltog/vim-powerline'
+"Bundle 'molokai'
 "Bundle 'surround.vim'
-Bundle 'file-line'
-Bundle 'Align'
-Bundle 'jnwhiteh/vim-golang'
+"Bundle 'file-line'
 
 "Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+"Bundle 'jnwhiteh/vim-golang'
+"Bundle 'Align'
 
 filetype plugin indent on     " required!
