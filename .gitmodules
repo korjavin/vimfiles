@@ -1,15 +1,15 @@
 [submodule "bundle/vundle"]
 	path = bundle/vundle
-	url = https://github.com/gmarik/vundle.git
+	url = git://github.com/gmarik/vundle.git
 [submodule "bundle/molokai"]
 	path = bundle/molokai
-	url = https://github.com/vim-scripts/molokai.git
+	url = git://github.com/vim-scripts/molokai.git
 [submodule "bundle/surround.vim"]
 	path = bundle/surround.vim
-	url = https://github.com/vim-scripts/surround.vim.git
+	url = git://github.com/vim-scripts/surround.vim.git
 [submodule "bundle/vim-powerline"]
 	path = bundle/vim-powerline
-	url = https://github.com/Lokaltog/vim-powerline.git
+	url = git://github.com/Lokaltog/vim-powerline.git
 [submodule "bundle/file-line"]
 	path = bundle/file-line
-	url = https://github.com/vim-scripts/file-line.git
+	url = git://github.com/vim-scripts/file-line.git
