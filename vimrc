@@ -276,7 +276,7 @@ set rtp+=~/.vim/bundle/vundle/
 Bundle 'gmarik/vundle'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'molokai'
-Bundle 'surround.vim'
+"Bundle 'surround.vim'
 Bundle 'file-line'
 
 "Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
