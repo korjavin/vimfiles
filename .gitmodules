@@ -12,7 +12,7 @@
 	url = git://github.com/vim-scripts/file-line.git
 [submodule "bundle/vim-mac-classic-theme"]
 	path = bundle/vim-mac-classic-theme
-	url = https://github.com/nelstrom/vim-mac-classic-theme.git
+	url = git://github.com/nelstrom/vim-mac-classic-theme.git
 [submodule "bundle/gist-vim"]
 	path = bundle/gist-vim
 	url = git://github.com/mattn/gist-vim.git
