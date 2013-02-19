@@ -33,7 +33,7 @@ colorscheme symfony
 map <F11> :colorscheme zellner<CR>
 map <F12> :colorscheme tango<CR>
 map <S-F11> :colorscheme desert<CR>
-map <S-F12> :colorscheme symfony<CR>
+map <S-F12> :colorscheme mac_classic<CR>
 set tabstop=2
 autocmd VimLeavePre * silent mksession! ~/.vim/lastSession.vim
 map <F7> :nohlsearch<cr>
@@ -278,6 +278,7 @@ Bundle 'Lokaltog/vim-powerline'
 Bundle 'molokai'
 "Bundle 'surround.vim'
 Bundle 'file-line'
+Bundle 'nelstrom/vim-mac-classic-theme.git'
 
 "Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 "Bundle 'jnwhiteh/vim-golang'

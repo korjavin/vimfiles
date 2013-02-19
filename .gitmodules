@@ -10,3 +10,6 @@
 [submodule "bundle/file-line"]
 	path = bundle/file-line
 	url = git://github.com/vim-scripts/file-line.git
+[submodule "bundle/vim-mac-classic-theme"]
+	path = bundle/vim-mac-classic-theme
+	url = https://github.com/nelstrom/vim-mac-classic-theme.git
