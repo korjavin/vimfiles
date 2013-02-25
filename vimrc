@@ -279,6 +279,7 @@ Bundle 'molokai'
 "Bundle 'surround.vim'
 Bundle 'file-line'
 Bundle 'nelstrom/vim-mac-classic-theme.git'
+Bundle 'mattn/zencoding-vim'
 Bundle 'github:mattn/gist-vim.git'
 
 "Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
