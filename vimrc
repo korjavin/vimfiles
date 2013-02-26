@@ -288,3 +288,5 @@ Bundle 'mattn/webapi-vim'
 "Bundle 'Align'
 
 filetype plugin indent on     " required!
+
+let g:gist_get_multiplefile = 1
