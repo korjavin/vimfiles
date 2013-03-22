@@ -29,7 +29,7 @@ map <F3> :tabnew<CR>
 map <F4> :NERDTreeClose<CR>:bdelete<CR>
 "map <F10> :mksession! ~/.vim/chess.session<CR>
 map <F10> :quitall! <CR>
-colorscheme symfony
+colorscheme mac_classic
 map <F11> :colorscheme zellner<CR>
 map <F12> :colorscheme tango<CR>
 map <S-F11> :colorscheme desert<CR>
