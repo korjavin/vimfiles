@@ -29,11 +29,12 @@ map <F3> :tabnew<CR>
 map <F4> :NERDTreeClose<CR>:bdelete<CR>
 "map <F10> :mksession! ~/.vim/chess.session<CR>
 map <F10> :quitall! <CR>
-colorscheme mac_classic
+colorscheme symfony
+set background=dark
 map <F11> :colorscheme zellner<CR>
-map <F12> :colorscheme tango<CR>
+"map <F12> :colorscheme tango<CR>
 map <S-F11> :colorscheme desert<CR>
-map <S-F12> :colorscheme mac_classic<CR>
+map <F12> :colorscheme mac_classic<CR>
 set tabstop=2
 autocmd VimLeavePre * silent mksession! ~/.vim/lastSession.vim
 map <F7> :nohlsearch<cr>
