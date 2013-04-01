@@ -283,6 +283,7 @@ Bundle 'nelstrom/vim-mac-classic-theme.git'
 Bundle 'mattn/zencoding-vim'
 Bundle 'github:mattn/gist-vim.git'
 Bundle 'mattn/webapi-vim'
+Bundle 'mattn/pastebin-vim'
 
 "Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 "Bundle 'jnwhiteh/vim-golang'
