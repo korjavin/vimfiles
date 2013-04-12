@@ -294,3 +294,5 @@ filetype plugin indent on     " required!
 let g:gist_get_multiplefile = 1
 let g:pastebin_api_dev_key = 'a882e11310bc8f5e43031fae7d5c8bce'
 let g:pastebin_browser_command = ''
+
+au BufRead,BufNewFile *.{ep} setlocal filetype=html linebreak showbreak=>\|
