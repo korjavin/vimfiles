@@ -41,6 +41,7 @@ map <F7> :nohlsearch<cr>
 noremap <F7> :set hlsearch!<cr>
 noremap <F8> :NERDTreeToggle<cr>
 noremap <S-F8> :Tlist<cr>
+noremap <F9> :set list!<cr>
 "map <F5> :set si! si?<CR>
 "imap <F5> :Sview<CR>
 "
