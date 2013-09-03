@@ -285,7 +285,8 @@ Bundle 'mattn/zencoding-vim'
 Bundle 'github:mattn/gist-vim.git'
 Bundle 'mattn/webapi-vim'
 Bundle 'mattn/pastebin-vim'
-
+"
+"Bundle 'kablamo/VimDebug'
 "Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 "Bundle 'jnwhiteh/vim-golang'
 "Bundle 'Align'
@@ -297,3 +298,4 @@ let g:pastebin_api_dev_key = 'a882e11310bc8f5e43031fae7d5c8bce'
 let g:pastebin_browser_command = ''
 
 au BufRead,BufNewFile *.{ep} setlocal filetype=html linebreak showbreak=>\|
+au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
