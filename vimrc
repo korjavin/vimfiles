@@ -45,14 +45,18 @@ noremap <F9> :set list!<cr>
 "map <F5> :set si! si?<CR>
 "imap <F5> :Sview<CR>
 "
-    map <F5>  <esc>:call SWITCHFOLD()<cr>
-    function! SWITCHFOLD()
-        if &foldmethod=="syntax"
-            set foldmethod=indent
-            return
-        endif
-        set foldmethod=syntax
-    endfunction
+"map <F5>  <esc>:call SWITCHFOLD()<cr>
+"function! SWITCHFOLD()
+"    if &foldmethod=="syntax"
+"        set foldmethod=indent
+"        return
+"    endif
+"    set foldmethod=syntax
+"endfunction
+
+map <F5>  <esc>:!perl -Ilib -I../lib -c %<CR>
+
+
 
 set completeopt+=longest
   let g:miniBufExplMapWindowNavVim = 1
@@ -285,6 +289,9 @@ Bundle 'mattn/zencoding-vim'
 Bundle 'github:mattn/gist-vim.git'
 Bundle 'mattn/webapi-vim'
 Bundle 'mattn/pastebin-vim'
+Bundle 'JavaScript-Indent'
+Bundle 'vimwiki'
+
 "
 "Bundle 'kablamo/VimDebug'
 "Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
@@ -297,5 +304,8 @@ let g:gist_get_multiplefile = 1
 let g:pastebin_api_dev_key = 'a882e11310bc8f5e43031fae7d5c8bce'
 let g:pastebin_browser_command = ''
 
-au BufRead,BufNewFile *.{ep} setlocal filetype=html linebreak showbreak=>\|
+au BufRead,BufNewFile *.{ep} setlocal filetype=html linebreak showbreak=>\| cindent
 au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
+au FileType perl map <F5>  <esc>:!perl -Ilib -I../lib -c %<CR>
+au FileType php  map <F5>  <esc>:!php -l %<CR>
+
