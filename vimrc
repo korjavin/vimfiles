@@ -308,4 +308,10 @@ au BufRead,BufNewFile *.{ep} setlocal filetype=html linebreak showbreak=>\| cind
 au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
 au FileType perl map <F5>  <esc>:!perl -Ilib -I../lib -c %<CR>
 au FileType php  map <F5>  <esc>:!php -l %<CR>
+"au FileType html set equalprg="tidy -config ~/.vim/tidy.conf"
 
+
+map <leader>ti :%! tidy -config ~/.vim/tidy.conf <CR>
+vmap <leader>ti :! tidy -config ~/.vim/tidy.conf <CR>
+
+set mousemodel=popup
