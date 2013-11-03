@@ -315,3 +315,10 @@ map <leader>ti :%! tidy -config ~/.vim/tidy.conf <CR>
 vmap <leader>ti :! tidy -config ~/.vim/tidy.conf <CR>
 
 set mousemodel=popup
+cnoreabbrev Wq wq
+cnoreabbrev wQ wq
+cnoreabbrev WQ wq
+
+Bundle  'AndrewRadev/linediff.vim'
+vmap <leader>li :Linediff<CR>
+map <leader>lr :LinediffReset<CR>
