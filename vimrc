@@ -291,11 +291,11 @@ Bundle 'mattn/webapi-vim'
 Bundle 'mattn/pastebin-vim'
 Bundle 'JavaScript-Indent'
 Bundle 'vimwiki'
+let g:vimwiki_url_maxsave = 0 
 
 "
 "Bundle 'kablamo/VimDebug'
 "Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-"Bundle 'jnwhiteh/vim-golang'
 "Bundle 'Align'
 
 filetype plugin indent on     " required!
@@ -306,7 +306,7 @@ let g:pastebin_browser_command = ''
 
 au BufRead,BufNewFile *.{ep} setlocal filetype=html linebreak showbreak=>\| cindent
 au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
-au FileType perl map <F5>  <esc>:!perl -Ilib -I../lib -c %<CR>
+au FileType perl map <F5>  <esc>:!perl -Ilib -I../lib -c %<CR>"
 au FileType php  map <F5>  <esc>:!php -l %<CR>
 "au FileType html set equalprg="tidy -config ~/.vim/tidy.conf"
 
@@ -322,3 +322,13 @@ cnoreabbrev WQ wq
 Bundle  'AndrewRadev/linediff.vim'
 vmap <leader>li :Linediff<CR>
 map <leader>lr :LinediffReset<CR>
+let g:linediff_first_buffer_command  = 'tabnew'
+let g:linediff_second_buffer_command = 'rightbelow new'
+
+map <S-DOWN> <DOWN>
+map <S-UP> <UP>
+map <C-L> :ls<CR>
+
+autocmd BufWritePre *.pl :%s/\s\+$//e
+
+
