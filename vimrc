@@ -7,7 +7,8 @@ set sta
 "set acd
 set ch=2
 set ls=2
-set diffopt=filler,horizontal
+set diffopt=filler,iwhite
+"set diffopt=filler,horizontal
 set ic
 syntax on
 set incsearch
@@ -26,7 +27,7 @@ map <S-F4> :tabclose<CR>
 map <F1> :bprev<CR>
 map <F2> :bnext<CR>
 map <F3> :tabnew<CR>
-map <F4> :NERDTreeClose<CR>:bdelete<CR>
+map <F4> :NERDTreeClose<CR>:Bdelete<CR>
 "map <F10> :mksession! ~/.vim/chess.session<CR>
 map <F10> :quitall! <CR>
 colorscheme symfony
@@ -54,7 +55,6 @@ noremap <F9> :set list!<cr>
 "    set foldmethod=syntax
 "endfunction
 
-map <F5>  <esc>:!perl -Ilib -I../lib -c %<CR>
 
 
 
@@ -62,7 +62,7 @@ set completeopt+=longest
   let g:miniBufExplMapWindowNavVim = 1
   let g:miniBufExplMapWindowNavArrows = 1
   let g:miniBufExplMapCTabSwitchBufs = 1
-  let g:miniBufExplModSelTarget = 1  
+  let g:miniBufExplModSelTarget = 1
   imap <C-@> <C-X><C-O>
 
 "func CloseScratch()
@@ -214,7 +214,7 @@ filetype plugin on
   noremap <C-left> :bprev<CR>
   noremap <C-right> :bnext<CR>
   set laststatus=2
-"  let g:buftabs_in_statusline=1
+  "let g:buftabs_in_statusline=1
   let g:buftabs_active_highlight_group="Visual"
 
 
@@ -289,14 +289,9 @@ Bundle 'mattn/zencoding-vim'
 Bundle 'github:mattn/gist-vim.git'
 Bundle 'mattn/webapi-vim'
 Bundle 'mattn/pastebin-vim'
-Bundle 'JavaScript-Indent'
 Bundle 'vimwiki'
-let g:vimwiki_url_maxsave = 0 
+let g:vimwiki_url_maxsave = 0
 
-"
-"Bundle 'kablamo/VimDebug'
-"Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-"Bundle 'Align'
 
 filetype plugin indent on     " required!
 
@@ -330,5 +325,8 @@ map <S-UP> <UP>
 map <C-L> :ls<CR>
 
 autocmd BufWritePre *.pl :%s/\s\+$//e
+map <leader>sp :%s/\s\+$//e<CR>
+
+Bundle 'bbye'
 
 
