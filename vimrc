@@ -325,8 +325,8 @@ map <S-UP> <UP>
 map <C-L> :ls<CR>
 
 autocmd BufWritePre *.pl :%s/\s\+$//e
-map <leader>sp :%s/\s\+$//e<CR>
+map <leader>sp :%s/\s\+$//e<CR> :retab<CR>
 
 Bundle 'bbye'
 
-
+nnoremap <C-F7> <Plug>VimwikiDiaryPrevDay
