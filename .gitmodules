@@ -34,3 +34,6 @@
 [submodule "bundle/bbye"]
 	path = bundle/bbye
 	url = https://github.com/vim-scripts/bbye.git
+[submodule "bundle/vim-indent-guides"]
+	path = bundle/vim-indent-guides
+	url = https://github.com/nathanaelkane/vim-indent-guides.git
