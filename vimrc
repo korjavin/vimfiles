@@ -285,7 +285,6 @@ Bundle 'molokai'
 "Bundle 'surround.vim'
 Bundle 'file-line'
 Bundle 'nelstrom/vim-mac-classic-theme.git'
-Bundle 'mattn/zencoding-vim'
 Bundle 'github:mattn/gist-vim.git'
 Bundle 'mattn/webapi-vim'
 Bundle 'mattn/pastebin-vim'
@@ -338,3 +337,4 @@ let g:indent_guides_start_level=2
 let g:indent_guides_guide_size =1
 
 Bundle 'kien/ctrlp.vim'
+Bundle 'mattn/emmet-vim'
