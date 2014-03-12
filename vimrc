@@ -27,7 +27,8 @@ map <S-F4> :tabclose<CR>
 map <F1> :bprev<CR>
 map <F2> :bnext<CR>
 map <F3> :tabnew<CR>
-map <F4> :NERDTreeClose<CR>:Bdelete<CR>
+"map <F4> :NERDTreeClose<CR>:Bdelete<CR>
+map <F4> :Bdelete<CR>
 "map <F10> :mksession! ~/.vim/chess.session<CR>
 map <F10> :quitall! <CR>
 colorscheme symfony
@@ -220,7 +221,7 @@ filetype plugin on
 
 set dir=~/tmp/
 
-let NERDTreeQuitOnOpen=1
+let NERDTreeQuitOnOpen=0
 let NERDTreeHighlightCursorline=0
 let g:buftabs_only_basename=1
 
@@ -304,6 +305,7 @@ au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
 "au FileType perl map <F5>  <esc>:!perl -c %<CR>
 au FileType perl map <F5>  <esc>:!perl -Ilib -I../lib -c %<CR>
 au FileType php  map <F5>  <esc>:!php -l %<CR>
+au FileType javascript  map <F5>  <esc>:!nodejs %<CR>
 "au FileType html set equalprg="tidy -config ~/.vim/tidy.conf"
 
 
@@ -326,7 +328,7 @@ map <S-UP> <UP>
 map <C-L> :ls<CR>
 
 autocmd BufWritePre *.pl :%s/\s\+$//e
-map <leader>sp :%s/\s\+$//e<CR> :retab<CR>
+map <leader>sp :%s/\s\+$//e<CR> :%s@\v[\r\n]\s*\{@ {@g<CR> :retab<CR>
 
 Bundle 'bbye'
 
@@ -338,3 +340,6 @@ let g:indent_guides_guide_size =1
 
 Bundle 'kien/ctrlp.vim'
 Bundle 'mattn/emmet-vim'
+
+map <leader>ru :setlocal spell spelllang=ru<CR>
+map <leader>en :setlocal spell spelllang=en<CR>
