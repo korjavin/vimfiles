@@ -27,8 +27,8 @@ map <S-F4> :tabclose<CR>
 map <F1> :bprev<CR>
 map <F2> :bnext<CR>
 map <F3> :tabnew<CR>
-"map <F4> :NERDTreeClose<CR>:Bdelete<CR>
-map <F4> :Bdelete<CR>
+map <F4> :NERDTreeClose<CR>:Bdelete<CR>
+"map <F4> :Bdelete<CR>
 "map <F10> :mksession! ~/.vim/chess.session<CR>
 map <F10> :quitall! <CR>
 colorscheme symfony
@@ -42,7 +42,7 @@ autocmd VimLeavePre * silent mksession! ~/.vim/lastSession.vim
 map <F7> :nohlsearch<cr>
 noremap <F7> :set hlsearch!<cr>
 noremap <F8> :NERDTreeToggle<cr>
-noremap <S-F8> :Tlist<cr>
+"noremap <S-F8> :Tlist<cr>
 noremap <F9> :set list!<cr>
 "map <F5> :set si! si?<CR>
 "imap <F5> :Sview<CR>
@@ -221,7 +221,7 @@ filetype plugin on
 
 set dir=~/tmp/
 
-let NERDTreeQuitOnOpen=0
+let NERDTreeQuitOnOpen=1
 let NERDTreeHighlightCursorline=0
 let g:buftabs_only_basename=1
 
@@ -328,7 +328,7 @@ map <S-UP> <UP>
 map <C-L> :ls<CR>
 
 autocmd BufWritePre *.pl :%s/\s\+$//e
-map <leader>sp :%s/\s\+$//e<CR> :%s@\v[\r\n]\s*\{@ {@g<CR> :retab<CR>
+map <leader>sp :%s/\s\+$//e<CR> :%s@\v[\r\n]\s*\{@ {@ge<CR> :retab<CR>
 
 Bundle 'bbye'
 
