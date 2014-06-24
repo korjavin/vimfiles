@@ -40,3 +40,9 @@
 [submodule "bundle/emmet-vim"]
 	path = bundle/emmet-vim
 	url = git://github.com/mattn/emmet-vim.git
+[submodule "bundle/indenthtml.vim.git"]
+	path = bundle/indenthtml.vim.git
+	url = https://github.com/vim-scripts/indenthtml.vim.git
+[submodule "bundle/vim-easy-align"]
+	path = bundle/vim-easy-align
+	url = https://github.com/junegunn/vim-easy-align.git

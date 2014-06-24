@@ -340,6 +340,14 @@ let g:indent_guides_guide_size =1
 
 Bundle 'kien/ctrlp.vim'
 Bundle 'mattn/emmet-vim'
+" :CtrlPBuffer :CtrlPLastMode
+let g:ctrlp_cmd = 'CtrlPLastMode'
 
 map <leader>ru :setlocal spell spelllang=ru<CR>
 map <leader>en :setlocal spell spelllang=en<CR>
+
+Bundle 'vim-scripts/indenthtml.vim'
+let g:html_indent_script1 = "inc"
+let g:html_indent_style1 = "inc"
+
+Bundle 'junegunn/vim-easy-align'
