@@ -40,7 +40,7 @@ map <F12> :colorscheme mac_classic<CR>
 set tabstop=2
 autocmd VimLeavePre * silent mksession! ~/.vim/lastSession.vim
 map <F7> :nohlsearch<cr>
-noremap <F7> :set hlsearch!<cr>
+"noremap <F7> :set hlsearch!<cr>
 noremap <F8> :NERDTreeToggle<cr>
 "noremap <S-F8> :Tlist<cr>
 noremap <F9> :set list!<cr>
@@ -351,3 +351,9 @@ let g:html_indent_script1 = "inc"
 let g:html_indent_style1 = "inc"
 
 Bundle 'junegunn/vim-easy-align'
+Bundle 'Valloric/YouCompleteMe'
+"cd ~/.vim/bundle/YouCompleteMe
+"./install.sh --clang-completer
+Bundle 'sjl/gundo.vim'
+nnoremap <F7> :GundoToggle<CR>
+
