@@ -39,14 +39,22 @@ map <S-F11> :colorscheme desert<CR>
 map <F12> :colorscheme mac_classic<CR>
 set tabstop=2
 autocmd VimLeavePre * silent mksession! ~/.vim/lastSession.vim
-"map <F7> :nohlsearch<cr>
+map <F7> :nohlsearch<cr>
 "noremap <F7> :set hlsearch!<cr>
 noremap <F8> :NERDTreeToggle<cr>
 "noremap <S-F8> :Tlist<cr>
 noremap <F9> :set list!<cr>
 "map <F5> :set si! si?<CR>
 "imap <F5> :Sview<CR>
-
+"
+"map <F5>  <esc>:call SWITCHFOLD()<cr>
+"function! SWITCHFOLD()
+"    if &foldmethod=="syntax"
+"        set foldmethod=indent
+"        return
+"    endif
+"    set foldmethod=syntax
+"endfunction
 
 
 
@@ -58,6 +66,13 @@ set completeopt+=longest
   let g:miniBufExplModSelTarget = 1
   imap <C-@> <C-X><C-O>
 
+"func CloseScratch()
+"    if bufname("%")==""
+"        :exe ":bdelete ".bufnr("%")
+"    endif
+"endfunc
+"
+"inoremap ) <Esc>:windo exe ":call CloseScratch()"<cr>a)
 command! -bang -bar Q :q<bang>
 command! -bar -nargs=* -bang W :write<bang> <args>
 set wildmenu
@@ -82,26 +97,32 @@ set shortmess=tToOI
 set listchars+=tab:>-,trail:-,extends:>,precedes:<,nbsp:%
 set clipboard+=unnamed
 set pastetoggle=<F1>
-
 "autocmd InsertEnter * set cursorline
 "autocmd InsertEnter * highlight StatusLine ctermbg=52
 "autocmd InsertLeave * highlight StatusLine ctermbg=8
 "autocmd InsertLeave * set nocursorline
 "autocmd CmdwinEnter * highlight StatusLine ctermbg=82
 "autocmd CmdwinLeave * highlight StatusLine ctermbg=8
-
 map <c-w>] <c-w>]:tab split<cr>gT:q<cr>gt
-
+"function! DiffWithFileFromDisk()
+"  let filename=expand('%')
+"  let diffname = filename.'.fileFromBuffer'
+"  exec 'saveas! '.diffname
+"  diffthis
+"  vsplit
+"  exec 'edit '.filename
+"  diffthis
+"endfunction
+":nmap <F7> :call DiffWithFileFromDisk()<cr>
 "map <C-Up> :bn<Return>
 "map <C-Down> :bp<Return>
-
 set fileencodings=ucs-bom,utf-8,cp1251,koi8-r,ibm866,default,latin1
 retab
 set expandtab
-set tabstop     = 4
-set shiftwidth  = 4
-set softtabstop = 4
-set backspace   = indent,eol,start
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set backspace=indent,eol,start
 set timeout timeoutlen=3000 ttimeoutlen=100
 
 nnoremap <leader>es :w! /tmp/sudoSave \| let $fileToSave=expand('%') \| let $fileToSaveBackup=expand('%').'~' \| !sudo cp $fileToSave $fileToSaveBackup && sudo cp /tmp/sudoSave $fileToSave<CR><ESC>:e!<CR>
@@ -110,7 +131,7 @@ nnoremap <leader>es :w! /tmp/sudoSave \| let $fileToSave=expand('%') \| let $fil
 au BufNewFile,BufRead *.yaml,*.yml    setf yaml
 au BufNewFile,BufRead *.twig    setf htmljinja
 
-"Stupid map begin
+
 
 
   map ё `
@@ -180,8 +201,6 @@ au BufNewFile,BufRead *.twig    setf htmljinja
   map Б <
   map Ю >
 
-"Stupid map end
-
 
 
 let g:snippetsEmu_key="<S-Tab>"
@@ -202,9 +221,9 @@ filetype plugin on
 
 set dir=~/tmp/
 
-let NERDTreeQuitOnOpen          = 1
-let NERDTreeHighlightCursorline = 0
-let g:buftabs_only_basename     = 1
+let NERDTreeQuitOnOpen=1
+let NERDTreeHighlightCursorline=0
+let g:buftabs_only_basename=1
 
 set showcmd     "show incomplete cmds down the bottom
 set showmode    "show current mode down the bottom
@@ -220,15 +239,15 @@ set foldmethod=indent   "fold based on indent
 set foldnestmax=3       "deepest fold is 3 levels
 set nofoldenable        "dont fold by default
 
-set wildmode   = list:longest   "make cmdline tab completion similar to bash
+set wildmode=list:longest   "make cmdline tab completion similar to bash
 set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
-set wildignore = *.o,*.obj,*~ "stuff to ignore when tab completing
+set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
 
 set formatoptions-=o "dont continue comments when pushing o/O
 
-set scrolloff     = 3
-set sidescrolloff = 7
-set sidescroll    = 1
+set scrolloff=3
+set sidescrolloff=7
+set sidescroll=1
 set autoread
 
 
@@ -244,17 +263,16 @@ autocmd FileType perl setlocal equalprg=perltidy
 autocmd FileType perl setlocal foldmethod=syntax
 autocmd BufNewFile,BufRead *.p[lm] compiler perl
 
-let perl_fold            = 1
-let perl_fold_blocks     = 1
-let perl_sync_dist       = 400
+let perl_fold = 1
+let perl_fold_blocks = 1
+let perl_sync_dist = 400
 
 let perl_nofold_packages = 1
-let perl_include_pod     = 1
+let perl_include_pod = 1
 
-let perl_extended_vars   = 1
+let perl_extended_vars  = 1
 
 let g:vimwiki_list = [{'path': '~/.vimwiki/'}]
-let g:vimwiki_url_maxsave = 0
 
 "vundle
 
@@ -272,6 +290,7 @@ Bundle 'github:mattn/gist-vim.git'
 Bundle 'mattn/webapi-vim'
 Bundle 'mattn/pastebin-vim'
 Bundle 'vimwiki'
+let g:vimwiki_url_maxsave = 0
 
 
 filetype plugin indent on     " required!
@@ -329,7 +348,7 @@ map <leader>en :setlocal spell spelllang=en<CR>
 
 Bundle 'vim-scripts/indenthtml.vim'
 let g:html_indent_script1 = "inc"
-let g:html_indent_style1  = "inc"
+let g:html_indent_style1 = "inc"
 
 Bundle 'junegunn/vim-easy-align'
 Bundle 'Valloric/YouCompleteMe'
