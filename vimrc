@@ -357,3 +357,6 @@ Bundle 'Valloric/YouCompleteMe'
 Bundle 'sjl/gundo.vim'
 nnoremap <F7> :GundoToggle<CR>
 
+let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\v[\/](lib[\/]vendor|cache|web|plugins|test)$',
+    \ }
