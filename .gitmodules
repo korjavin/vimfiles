@@ -49,9 +49,6 @@
 [submodule "bundle/gundo.vim"]
 	path = bundle/gundo.vim
 	url = https://github.com/sjl/gundo.vim.git
-[submodule "bundle/YouCompleteMe"]
-	path = bundle/YouCompleteMe
-	url = https://github.com/Valloric/YouCompleteMe.git
 [submodule "bundle/vim-go"]
 	path = bundle/vim-go
 	url = https://github.com/fatih/vim-go.git
