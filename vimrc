@@ -305,7 +305,11 @@ au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
 "au FileType perl map <F5>  <esc>:!perl -c %<CR>
 au FileType perl map <F5>  <esc>:!perl -Ilib -I../lib -c %<CR>
 au FileType php  map <F5>  <esc>:!php -l %<CR>
+au FileType sml  map <F5>  <esc>:!sml %<CR>
 au FileType javascript  map <F5>  <esc>:!nodejs %<CR>
+au FileType python map <F5>  <esc>:!python %<CR>
+au FileType haskell map <F5>  <esc>:!ghci %<CR>
+au FileType groovy map <F5>  <esc>:!groovy %<CR>
 "au FileType html set equalprg="tidy -config ~/.vim/tidy.conf"
 
 
@@ -360,3 +364,5 @@ nnoremap <F7> :GundoToggle<CR>
 let g:ctrlp_custom_ignore = {
     \ 'dir':  '\v[\/](lib[\/]vendor|cache|web|plugins|test)$',
     \ }
+
+Bundle 'fatih/vim-go'
