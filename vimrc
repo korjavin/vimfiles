@@ -315,6 +315,7 @@ au FileType javascript  map <F5>  <esc>:!nodejs %<CR>
 au FileType python map <F5>  <esc>:!python %<CR>
 au FileType haskell map <F5>  <esc>:!ghci %<CR>
 au FileType haskell set makeprg=/usr/bin/ghc\ \%
+au FileType lhaskell map <F5>  <esc>:!ghci %<CR>
 au FileType groovy map <F5>  <esc>:!groovy %<CR>
 au FileType ruby map <F5>  <esc>:!ruby %<CR>
 "au FileType html set equalprg="tidy -config ~/.vim/tidy.conf"
