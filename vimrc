@@ -20,15 +20,18 @@ set listchars=trail:.,tab:>-
 
 map <C-UP> :tabprevious<CR>
 map <C-DOWN> :tabnext<CR>
-map <S-F3> :tabnew<CR>
-map <S-F4> :tabclose<CR>
+map [1;5R <C-F3>
+map [1;5S <C-F4>
+map <C-F3> :tabnew<CR>
+map <C-F4> :tabclose<CR>
 "map <F1> :tabprevious<CR>
 "map <F2> :tabnext<CR>
 map <F1> :bprev<CR>
 map <F2> :bnext<CR>
 map <F3> :tabnew<CR>
 map <F4> :NERDTreeClose<CR>:Bdelete<CR>
-"map <F4> :Bdelete<CR>
+map [1;2S <S-F4> " :h i_ctrl-v
+map <S-F4> :NERDTreeClose<CR>:bw<CR>
 "map <F10> :mksession! ~/.vim/chess.session<CR>
 map <F10> :quitall! <CR>
 colorscheme symfony
@@ -38,7 +41,7 @@ map <F11> :colorscheme zellner<CR>
 map <S-F11> :colorscheme desert<CR>
 map <F12> :colorscheme mac_classic<CR>
 set tabstop=2
-autocmd VimLeavePre * silent mksession! ~/.vim/lastSession.vim
+autocmd VimLeavePre * silent mksession! ~/tmp/lastSession.vim
 map <F7> :nohlsearch<cr>
 "noremap <F7> :set hlsearch!<cr>
 noremap <F8> :NERDTreeToggle<cr>
@@ -301,6 +304,8 @@ let g:pastebin_browser_command = ''
 
 au BufRead,BufNewFile *.{ep} setlocal filetype=html linebreak showbreak=>\| cindent
 au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
+map [15;2~ <S-F5>
+map <S-F5> <esc>:make<CR>
 "au FileType perl map <F5>  <esc>:make<CR>
 "au FileType perl map <F5>  <esc>:!perl -c %<CR>
 au FileType perl map <F5>  <esc>:!perl -Ilib -I../lib -c %<CR>
@@ -309,7 +314,9 @@ au FileType sml  map <F5>  <esc>:!sml %<CR>
 au FileType javascript  map <F5>  <esc>:!nodejs %<CR>
 au FileType python map <F5>  <esc>:!python %<CR>
 au FileType haskell map <F5>  <esc>:!ghci %<CR>
+au FileType haskell set makeprg=/usr/bin/ghc\ \%
 au FileType groovy map <F5>  <esc>:!groovy %<CR>
+au FileType ruby map <F5>  <esc>:!ruby %<CR>
 "au FileType html set equalprg="tidy -config ~/.vim/tidy.conf"
 
 
