@@ -372,6 +372,19 @@ nnoremap <F7> :GundoToggle<CR>
 let g:ctrlp_custom_ignore = {
     \ 'dir':  '\v[\/](lib[\/]vendor|cache|web|plugins|test)$',
     \ }
+let g:ctrlp_buffer_func = { 'enter': 'CtrlPMappings' }
+
+function! CtrlPMappings()
+  nnoremap <buffer> <silent> <C-@> :call <sid>DeleteBuffer()<cr>
+endfunction
+
+function! s:DeleteBuffer()
+  let path = fnamemodify(getline('.')[2:], ':p')
+  let bufn = matchstr(path, '\v\d+\ze\*No Name')
+  exec "bd" bufn ==# "" ? path : bufn
+  exec "norm \<F5>"
+endfunction
+
 
 Bundle 'fatih/vim-go'
 
