@@ -20,6 +20,8 @@ set listchars=trail:.,tab:>-
 
 map <C-UP> :tabprevious<CR>
 map <C-DOWN> :tabnext<CR>
+noremap <C-left> <C-W>t
+noremap <C-right> <C-W>b
 map [1;5R <C-F3>
 map [1;5S <C-F4>
 map <C-F3> :tabnew<CR>
@@ -32,17 +34,17 @@ map <F3> :tabnew<CR>
 map <F4> :NERDTreeClose<CR>:Bdelete<CR>
 map [1;2S <S-F4> " :h i_ctrl-v
 map <S-F4> :NERDTreeClose<CR>:bw<CR>
-"map <F10> :mksession! ~/.vim/chess.session<CR>
-map <F10> :quitall! <CR>
+map <F6> :tabclose<cr>
+map <F10> :quitall <CR>
 colorscheme symfony
 set background=dark
 map <F11> :colorscheme zellner<CR>
 "map <F12> :colorscheme tango<CR>
 map <S-F11> :colorscheme desert<CR>
-map <F12> :colorscheme mac_classic<CR>
-set tabstop=2
+"map <F12> :colorscheme mac_classic<CR>
+map <F12> :mksession! ~/tmp/vim.session<CR>
 autocmd VimLeavePre * silent mksession! ~/tmp/lastSession.vim
-map <F7> :nohlsearch<cr>
+"map <F7> :nohlsearch<cr>
 "noremap <F7> :set hlsearch!<cr>
 noremap <F8> :NERDTreeToggle<cr>
 "noremap <S-F8> :Tlist<cr>
@@ -89,7 +91,7 @@ menu Encoding.utf-8 :e ++enc=utf-8<CR>
 "map <F9> :emenu Encoding.<TAB>
 set t_Co=255
 "hi CursorLine guibg=#dbdbdb gui=none
-map <F6> :setlocal cursorline!<cr>
+"map <F6> :setlocal cursorline!<cr>
 "autocmd InsertEnter * hi Normal guibg=green
 "autocmd InsertLeave * hi Normal guibg=blue
 set keymap=russian-jcukenwin
@@ -106,7 +108,7 @@ set pastetoggle=<F1>
 "autocmd InsertLeave * set nocursorline
 "autocmd CmdwinEnter * highlight StatusLine ctermbg=82
 "autocmd CmdwinLeave * highlight StatusLine ctermbg=8
-map <c-w>] <c-w>]:tab split<cr>gT:q<cr>gt
+"map <c-w>] <c-w>]:tab split<cr>gT:q<cr>gt
 "function! DiffWithFileFromDisk()
 "  let filename=expand('%')
 "  let diffname = filename.'.fileFromBuffer'
@@ -131,7 +133,7 @@ set timeout timeoutlen=3000 ttimeoutlen=100
 nnoremap <leader>es :w! /tmp/sudoSave \| let $fileToSave=expand('%') \| let $fileToSaveBackup=expand('%').'~' \| !sudo cp $fileToSave $fileToSaveBackup && sudo cp /tmp/sudoSave $fileToSave<CR><ESC>:e!<CR>
 
 " Yaml
-au BufNewFile,BufRead *.yaml,*.yml    setf yaml
+au BufNewFile,BufRead *.yaml,*.yml setf yaml let b:did_indent = 1
 au BufNewFile,BufRead *.twig    setf htmljinja
 
 
@@ -215,8 +217,6 @@ let php_htmlInStrings=1
 filetype plugin on
 
 "buff
-  noremap <C-left> :bprev<CR>
-  noremap <C-right> :bnext<CR>
   set laststatus=2
   "let g:buftabs_in_statusline=1
   let g:buftabs_active_highlight_group="Visual"
@@ -303,6 +303,7 @@ let g:pastebin_api_dev_key = 'a882e11310bc8f5e43031fae7d5c8bce'
 let g:pastebin_browser_command = ''
 
 au BufRead,BufNewFile *.{ep} setlocal filetype=html linebreak showbreak=>\| cindent
+au BufRead,BufNewFile *.{tt} setlocal filetype=html syntax=html
 au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
 map [15;2~ <S-F5>
 map <S-F5> <esc>:make<CR>
@@ -337,7 +338,8 @@ let g:linediff_second_buffer_command = 'rightbelow new'
 
 map <S-DOWN> <DOWN>
 map <S-UP> <UP>
-map <C-L> :ls<CR>
+map <C-L> :CtrlPBuffer<CR>
+map <C-\> :CtrlPMRUFiles<CR>
 
 autocmd BufWritePre *.pl :%s/\s\+$//e
 map <leader>sp :%s/\s\+$//e<CR> :%s@\v[\r\n]\s*\{@ {@ge<CR> :retab<CR>
@@ -353,7 +355,7 @@ let g:indent_guides_guide_size =1
 Bundle 'kien/ctrlp.vim'
 Bundle 'mattn/emmet-vim'
 " :CtrlPBuffer :CtrlPLastMode
-let g:ctrlp_cmd = 'CtrlPLastMode'
+let g:ctrlp_cmd = 'CtrlP'
 
 map <leader>ru :setlocal spell spelllang=ru<CR>
 map <leader>en :setlocal spell spelllang=en<CR>
@@ -373,6 +375,8 @@ let g:ctrlp_custom_ignore = {
     \ 'dir':  '\v[\/](lib[\/]vendor|cache|web|plugins|test)$',
     \ }
 let g:ctrlp_buffer_func = { 'enter': 'CtrlPMappings' }
+
+let g:ctrlp_switch_buffer = 'h'
 
 function! CtrlPMappings()
   nnoremap <buffer> <silent> <C-@> :call <sid>DeleteBuffer()<cr>
@@ -407,3 +411,5 @@ func GitGrepWord()
   call GitGrep('-w -e ', getreg('z'))
 endf
 nmap <C-x>G :call GitGrepWord()<CR>
+set splitbelow
+set splitright
