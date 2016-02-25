@@ -314,7 +314,7 @@ au FileType php  map <F5>  <esc>:!php -l %<CR>
 au FileType sml  map <F5>  <esc>:!sml %<CR>
 au FileType javascript  map <F5>  <esc>:!nodejs %<CR>
 au FileType python map <F5>  <esc>:!python %<CR>
-au FileType haskell map <F5>  <esc>:!ghci %<CR>
+au FileType haskell map <F5>  <esc>:w<CR>:!ghci %<CR>
 au FileType haskell set makeprg=/usr/bin/ghc\ \%
 au FileType lhaskell map <F5>  <esc>:!ghci %<CR>
 au FileType groovy map <F5>  <esc>:!groovy %<CR>
