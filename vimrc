@@ -293,7 +293,7 @@ Bundle 'github:mattn/gist-vim.git'
 Bundle 'mattn/webapi-vim'
 Bundle 'mattn/pastebin-vim'
 Bundle 'vimwiki'
-let g:vimwiki_url_maxsave = 0
+"let g:vimwiki_url_maxsave = 0
 
 
 filetype plugin indent on     " required!
@@ -319,6 +319,10 @@ au FileType haskell set makeprg=/usr/bin/ghc\ \%
 au FileType lhaskell map <F5>  <esc>:!ghci %<CR>
 au FileType groovy map <F5>  <esc>:!groovy %<CR>
 au FileType ruby map <F5>  <esc>:!ruby %<CR>
+au FileType go map <F5>  <esc>:GoRun<CR>
+"au FileType go set listchars=tab:,trail:-,extends:>,precedes:<,nbsp:%
+au FileType go set nolist
+
 "au FileType html set equalprg="tidy -config ~/.vim/tidy.conf"
 
 
