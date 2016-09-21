@@ -307,9 +307,9 @@ au BufRead,BufNewFile *.{tt} setlocal filetype=html syntax=html
 au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
 map [15;2~ <S-F5>
 map <S-F5> <esc>:make<CR>
-"au FileType perl map <F5>  <esc>:make<CR>
+au FileType perl map <F5>  <esc>:make<CR>
 "au FileType perl map <F5>  <esc>:!perl -c %<CR>
-au FileType perl map <F5>  <esc>:!perl -Ilib -I../lib -c %<CR>
+"au FileType perl map <F5>  <esc>:!perl -Ilib -I../lib -c %<CR>
 au FileType php  map <F5>  <esc>:!php -l %<CR>
 au FileType sml  map <F5>  <esc>:!sml %<CR>
 au FileType javascript  map <F5>  <esc>:!nodejs %<CR>
@@ -417,4 +417,6 @@ set splitbelow
 set splitright
 
 highlight lCursor guifg=NONE guibg=Cyan
+
+let g:go_auto_sameids =1
 
