@@ -139,72 +139,72 @@ au BufNewFile,BufRead *.twig    setf htmljinja
 
 
 
-  map ё `
-  map й q
-  map ц w
-  map у e
-  map к r
-  map е t
-  map н y
-  map г u
-  map ш i
-  map щ o
-  map з p
-  map х [
-  map ъ ]
-  map ф a
-  map ы s
-  map в d
-  map а f
-  map п g
-  map р h
-  map о j
-  map л k
-  map д l
-  map ж ;
-  map э '
-  map я z
-  map ч x
-  map с c
-  map м v
-  map и b
-  map т n
-  map ь m
-  map б ,
-  map ю .
-  map Ё ~
-  map Й Q
-  map Ц W
-  map У E
-  map К R
-  map Е T
-  map Н Y
-  map Г U
-  map Ш I
-  map Щ O
-  map З P
-  map Х {
-  map Ъ }
-  map Ф A
-  map Ы S
-  map В D
-  map А F
-  map П G
-  map Р H
-  map О J
-  map Л K
-  map Д L
-  map Ж :
-  map Э "
-  map Я Z
-  map Ч X
-  map С C
-  map М V
-  map И B
-  map Т N
-  map Ь M
-  map Б <
-  map Ю >
+"  map ё `
+"  map й q
+"  map ц w
+"  map у e
+"  map к r
+"  map е t
+"  map н y
+"  map г u
+"  map ш i
+"  map щ o
+"  map з p
+"  map х [
+"  map ъ ]
+"  map ф a
+"  map ы s
+"  map в d
+"  map а f
+"  map п g
+"  map р h
+"  map о j
+"  map л k
+"  map д l
+"  map ж ;
+"  map э '
+"  map я z
+"  map ч x
+"  map с c
+"  map м v
+"  map и b
+"  map т n
+"  map ь m
+"  map б ,
+"  map ю .
+"  map Ё ~
+"  map Й Q
+"  map Ц W
+"  map У E
+"  map К R
+"  map Е T
+"  map Н Y
+"  map Г U
+"  map Ш I
+"  map Щ O
+"  map З P
+"  map Х {
+"  map Ъ }
+"  map Ф A
+"  map Ы S
+"  map В D
+"  map А F
+"  map П G
+"  map Р H
+"  map О J
+"  map Л K
+"  map Д L
+"  map Ж :
+"  map Э "
+"  map Я Z
+"  map Ч X
+"  map С C
+"  map М V
+"  map И B
+"  map Т N
+"  map Ь M
+"  map Б <
+"  map Ю >
 
 
 
@@ -293,7 +293,7 @@ Bundle 'github:mattn/gist-vim.git'
 Bundle 'mattn/webapi-vim'
 Bundle 'mattn/pastebin-vim'
 Bundle 'vimwiki'
-let g:vimwiki_url_maxsave = 0
+"let g:vimwiki_url_maxsave = 0
 
 
 filetype plugin indent on     " required!
@@ -307,18 +307,22 @@ au BufRead,BufNewFile *.{tt} setlocal filetype=html syntax=html
 au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
 map [15;2~ <S-F5>
 map <S-F5> <esc>:make<CR>
-"au FileType perl map <F5>  <esc>:make<CR>
+au FileType perl map <F5>  <esc>:make<CR>
 "au FileType perl map <F5>  <esc>:!perl -c %<CR>
-au FileType perl map <F5>  <esc>:!perl -Ilib -I../lib -c %<CR>
+"au FileType perl map <F5>  <esc>:!perl -Ilib -I../lib -c %<CR>
 au FileType php  map <F5>  <esc>:!php -l %<CR>
 au FileType sml  map <F5>  <esc>:!sml %<CR>
 au FileType javascript  map <F5>  <esc>:!nodejs %<CR>
 au FileType python map <F5>  <esc>:!python %<CR>
-au FileType haskell map <F5>  <esc>:!ghci %<CR>
+au FileType haskell map <F5>  <esc>:w<CR>:!ghci %<CR>
 au FileType haskell set makeprg=/usr/bin/ghc\ \%
 au FileType lhaskell map <F5>  <esc>:!ghci %<CR>
 au FileType groovy map <F5>  <esc>:!groovy %<CR>
 au FileType ruby map <F5>  <esc>:!ruby %<CR>
+au FileType go map <F5>  <esc>:GoRun<CR>
+"au FileType go set listchars=tab:,trail:-,extends:>,precedes:<,nbsp:%
+au FileType go set nolist
+
 "au FileType html set equalprg="tidy -config ~/.vim/tidy.conf"
 
 
@@ -411,3 +415,51 @@ endf
 nmap <C-x>G :call GitGrepWord()<CR>
 set splitbelow
 set splitright
+
+highlight lCursor guifg=NONE guibg=Cyan
+
+let g:go_auto_sameids =1
+
+nmap <silent> <leader>f :NERDTreeFind<CR>
+
+" Some support functions used by delimitmate, and snipmate
+Bundle 'vim-scripts/tlib'
+Bundle 'Raimondi/delimitMate'
+
+" DelimitMate
+
+" Delimitmate place cursor correctly n multiline objects e.g.
+" if you press enter in {} cursor still be
+" in the middle line instead of the last
+let delimitMate_expand_cr = 1
+
+" Delimitmate place cursor correctly in singleline pairs e.g.
+" if x - cursor if you press space in {x} result will be { x } instead of { x}
+let delimitMate_expand_space = 1
+
+
+" Add smart commands for comments like:
+" gcc - Toggle comment for the current line
+" gc  - Toggle comments for selected region or number of strings
+Bundle 'tomtom/tcomment_vim'
+
+Bundle 'othree/html5.vim'
+
+" Bundle 'Valloric/YouCompleteMe'
+
+" Colorscheme solarazied for vim
+Bundle 'altercation/vim-colors-solarized'
+
+"-------------------------
+" Solarized. No, this time it will be jellybeans.
+
+" Without this solarized have dark background in my terminal
+let g:solarized_termtrans=1
+
+" Setting up light color scheme
+set background=dark
+
+" Use solarized colorscheme
+colorscheme solarized
+
+" colorscheme jellybeans
