@@ -446,3 +446,20 @@ Bundle 'tomtom/tcomment_vim'
 Bundle 'othree/html5.vim'
 
 " Bundle 'Valloric/YouCompleteMe'
+
+" Colorscheme solarazied for vim
+Bundle 'altercation/vim-colors-solarized'
+
+"-------------------------
+" Solarized. No, this time it will be jellybeans.
+
+" Without this solarized have dark background in my terminal
+let g:solarized_termtrans=1
+
+" Setting up light color scheme
+set background=dark
+
+" Use solarized colorscheme
+colorscheme solarized
+
+" colorscheme jellybeans
