@@ -344,6 +344,7 @@ map <S-DOWN> <DOWN>
 map <S-UP> <UP>
 map <C-L> :CtrlPBuffer<CR>
 map <C-\> :CtrlPMRUFiles<CR>
+map <C-K> :CtrlPBufTag<CR>
 
 autocmd BufWritePre *.pl :%s/\s\+$//e
 map <leader>sp :%s/\s\+$//e<CR> :%s@\v[\r\n]\s*\{@ {@ge<CR> :retab<CR>
@@ -364,14 +365,14 @@ let g:ctrlp_cmd = 'CtrlP'
 map <leader>ru :setlocal spell spelllang=ru<CR>
 map <leader>en :setlocal spell spelllang=en<CR>
 
-Bundle 'vim-scripts/indenthtml.vim'
-let g:html_indent_script1 = "inc"
-let g:html_indent_style1 = "inc"
+" Bundle 'vim-scripts/indenthtml.vim'
+" let g:html_indent_script1 = "inc"
+" let g:html_indent_style1 = "inc"
 
 Bundle 'junegunn/vim-easy-align'
 
-Bundle 'sjl/gundo.vim'
-nnoremap <F7> :GundoToggle<CR>
+" Bundle 'sjl/gundo.vim'
+" nnoremap <F7> :GundoToggle<CR>
 
 let g:ctrlp_custom_ignore = {
     \ 'dir':  '\v[\/](lib[\/]vendor|cache|web|plugins|test)$',
