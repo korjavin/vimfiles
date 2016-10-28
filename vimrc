@@ -425,19 +425,6 @@ nmap <silent> <leader>f :NERDTreeFind<CR>
 
 " Some support functions used by delimitmate, and snipmate
 Bundle 'vim-scripts/tlib'
-Bundle 'Raimondi/delimitMate'
-
-" DelimitMate
-
-" Delimitmate place cursor correctly n multiline objects e.g.
-" if you press enter in {} cursor still be
-" in the middle line instead of the last
-let delimitMate_expand_cr = 1
-
-" Delimitmate place cursor correctly in singleline pairs e.g.
-" if x - cursor if you press space in {x} result will be { x } instead of { x}
-let delimitMate_expand_space = 1
-
 
 " Add smart commands for comments like:
 " gcc - Toggle comment for the current line
