@@ -451,4 +451,10 @@ set background=dark
 colorscheme solarized
 
 " colorscheme jellybeans
+
+Plugin 'Chiel92/vim-autoformat'
+
+
 Plugin 'tpope/vim-dispatch'
+
+
