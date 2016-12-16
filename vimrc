@@ -419,7 +419,7 @@ set splitright
 
 highlight lCursor guifg=NONE guibg=Cyan
 
-let g:go_auto_sameids =1
+let g:go_auto_sameids = 0
 
 nmap <silent> <leader>f :NERDTreeFind<CR>
 
@@ -454,7 +454,12 @@ colorscheme solarized
 
 Plugin 'Chiel92/vim-autoformat'
 
+  let g:go_jump_to_error = 1
+  let g:go_fmt_experimental = 1
 
 Plugin 'tpope/vim-dispatch'
 
+  let g:go_dispatch_enabled = 1
+
+  let g:go_highlight_operators = 1
 
