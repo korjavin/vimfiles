@@ -451,3 +451,4 @@ set background=dark
 colorscheme solarized
 
 " colorscheme jellybeans
+Plugin 'tpope/vim-dispatch'
