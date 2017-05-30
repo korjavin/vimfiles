@@ -463,4 +463,14 @@ Plugin 'tpope/vim-dispatch'
   let g:go_dispatch_enabled = 1
 
   let g:go_highlight_operators = 1
+  let g:go_metalinter_autosave = 1
 
+  let g:go_auto_type_info = 0
+
+nmap <silent> <leader>ga :GoAlternate<CR>
+nmap <silent> <leader>gc :GoCoverageToggle<CR>
+nmap <silent> <leader>gr :GoRename<CR>
+nmap <silent> <leader>gi :GoImports<CR>
+nmap <silent> <leader>gj :%!python -m json.tool<CR>
+
+Bundle "SirVer/ultisnips"
