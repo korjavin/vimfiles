@@ -358,7 +358,7 @@ Bundle 'nathanaelkane/vim-indent-guides'
 let g:indent_guides_start_level=2
 let g:indent_guides_guide_size =1
 
-Bundle 'kien/ctrlp.vim'
+Bundle 'ctrlpvim/ctrlp.vim'
 Bundle 'mattn/emmet-vim'
 " :CtrlPBuffer :CtrlPLastMode
 let g:ctrlp_cmd = 'CtrlP'
@@ -472,5 +472,7 @@ nmap <silent> <leader>gc :GoCoverageToggle<CR>
 nmap <silent> <leader>gr :GoRename<CR>
 nmap <silent> <leader>gi :GoImports<CR>
 nmap <silent> <leader>gj :%!python -m json.tool<CR>
+nmap <silent> <leader>t :tabmove 0<CR>
 
 Bundle "SirVer/ultisnips"
+let g:go_metalinter_excludes = [".*\.pb\.go"]
