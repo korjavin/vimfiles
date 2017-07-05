@@ -40,8 +40,8 @@ colorscheme symfony
 set background=dark
 map <F11> :colorscheme zellner<CR>
 "map <F12> :colorscheme tango<CR>
-map <S-F11> :colorscheme desert<CR>
-"map <F12> :colorscheme mac_classic<CR>
+map <S-F11> :colorscheme mac_classic<CR>
+"map <F12> :colorscheme desert<CR>
 map <F12> :mksession! ~/tmp/vim.session<CR>
 autocmd VimLeavePre * silent mksession! ~/tmp/lastSession.vim
 "map <F7> :nohlsearch<cr>
@@ -376,7 +376,7 @@ Bundle 'junegunn/vim-easy-align'
 " nnoremap <F7> :GundoToggle<CR>
 
 let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\v[\/](lib[\/]vendor|cache|web|plugins|test)$',
+    \ 'dir':  '\v[\/](lib[\/]vendor|cache|web|plugins|test|src[\/]github.com|node_modules)$',
     \ }
 let g:ctrlp_buffer_func = { 'enter': 'CtrlPMappings' }
 
@@ -437,19 +437,19 @@ Bundle 'othree/html5.vim'
 " Bundle 'Valloric/YouCompleteMe'
 
 " Colorscheme solarazied for vim
-Bundle 'altercation/vim-colors-solarized'
+"undle 'altercation/vim-colors-solarized'
 
 "-------------------------
 " Solarized. No, this time it will be jellybeans.
 
 " Without this solarized have dark background in my terminal
-let g:solarized_termtrans=1
+"et g:solarized_termtrans=1
 
 " Setting up light color scheme
-set background=dark
+"et background=dark
 
 " Use solarized colorscheme
-colorscheme solarized
+"colorscheme solarized
 
 " colorscheme jellybeans
 
@@ -476,3 +476,21 @@ nmap <silent> <leader>t :tabmove 0<CR>
 
 Bundle "SirVer/ultisnips"
 let g:go_metalinter_excludes = [".*\.pb\.go"]
+Plugin 'posva/vim-vue'
+au BufRead,BufNewFile *.{vue} setlocal filetype=vue
+autocmd FileType vue syntax sync fromstart
+
+Plugin 'vim-syntastic/syntastic'
+" let g:syntastic_check_on_wq = 1
+let g:syntastic_go_checkers = ['go']
+
+" let g:go_metalinter_autosave_enabled = ['vet', 'golint','test']
+" augroup auto_go
+"     autocmd!
+"     autocmd BufWritePost *.go :GoBuild
+"     autocmd BufWritePost *_test.go :GoTest
+" augroup end
+let g:go_fmt_fail_silently = 1
+"Plugin 'sekel/vim-vue-syntastic'
+"let g:syntastic_javascript_checkers = ['eslint']
+"let g:syntastic_vue_checkers = ['eslint']
