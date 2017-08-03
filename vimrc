@@ -373,27 +373,11 @@ map <leader>en :setlocal spell spelllang=en<CR>
 
 Bundle 'junegunn/vim-easy-align'
 
-" Bundle 'sjl/gundo.vim'
-" nnoremap <F7> :GundoToggle<CR>
-
 let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\v[\/](lib[\/]vendor|cache|web|plugins|test|src[\/]github.com|node_modules)$',
+    \ 'dir':  '\v[\/](lib[\/]vendor|cache|plugins|test|src[\/]github.com|node_modules)$',
     \ }
-let g:ctrlp_buffer_func = { 'enter': 'CtrlPMappings' }
 
 let g:ctrlp_switch_buffer = 'h'
-
-function! CtrlPMappings()
-  nnoremap <buffer> <silent> <C-@> :call <sid>DeleteBuffer()<cr>
-endfunction
-
-function! s:DeleteBuffer()
-  let path = fnamemodify(getline('.')[2:], ':p')
-  let bufn = matchstr(path, '\v\d+\ze\*No Name')
-  exec "bd" bufn ==# "" ? path : bufn
-  exec "norm \<F5>"
-endfunction
-
 
 Bundle 'fatih/vim-go'
 
@@ -521,3 +505,13 @@ nmap <silent> <leader>ls :source ~/tmp/vim/vimSession.vim<CR>
 " Plugin 'sunuslee/vim-plugin-random-colorscheme-picker'
 
 colorscheme zellner
+
+Bundle "d11wtq/ctrlp_bdelete.vim"
+call ctrlp_bdelete#init()
+
+"Plugin 'sjl/gundo.vim'
+"nnoremap <F7> :GundoToggle<CR>
+
+Bundle "mbbill/undotree"
+nnoremap <F7> :UndotreeToggle<cr>
+
