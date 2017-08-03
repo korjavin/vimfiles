@@ -24,30 +24,31 @@ noremap <C-left> <C-W>t
 noremap <C-right> <C-W>b
 map [1;5R <C-F3>
 map [1;5S <C-F4>
-map <C-F3> :tabnew<CR>
+map <C-F3> :tabnew<CR>:tabmove -<CR>
 map <C-F4> :tabclose<CR>
 "map <F1> :tabprevious<CR>
 "map <F2> :tabnext<CR>
 map <F1> :bprev<CR>
 map <F2> :bnext<CR>
 map <F3> :tabnew<CR>
+map <S-F3> :tabmove -<CR>
 map <F4> :NERDTreeClose<CR>:Bdelete<CR>
 map [1;2S <S-F4> " :h i_ctrl-v
 map <S-F4> :NERDTreeClose<CR>:bw<CR>
 map <F6> :tabclose<cr>
 map <F10> :quitall <CR>
+map <S-F10> :quitall! <CR>
 colorscheme symfony
 set background=dark
 map <F11> :colorscheme zellner<CR>
 "map <F12> :colorscheme tango<CR>
 map <S-F11> :colorscheme mac_classic<CR>
 "map <F12> :colorscheme desert<CR>
-map <F12> :mksession! ~/tmp/vim.session<CR>
-autocmd VimLeavePre * silent mksession! ~/tmp/lastSession.vim
+autocmd VimLeavePre * silent mksession! ~/tmp/vim/lastSession.vim
 "map <F7> :nohlsearch<cr>
 "noremap <F7> :set hlsearch!<cr>
 noremap <F8> :NERDTreeToggle<cr>
-"noremap <S-F8> :Tlist<cr>
+noremap <S-F8> :NERDTreeMirror<cr>
 noremap <F9> :set list!<cr>
 "map <F5> :set si! si?<CR>
 "imap <F5> :Sview<CR>
@@ -222,7 +223,7 @@ filetype plugin on
   let g:buftabs_active_highlight_group="Visual"
 
 
-set dir=~/tmp/
+set dir=~/tmp/vim/
 
 let NERDTreeQuitOnOpen=1
 let NERDTreeHighlightCursorline=0
@@ -285,7 +286,7 @@ set rtp+=~/.vim/bundle/vundle/
 
 Bundle 'gmarik/vundle'
 Bundle 'Lokaltog/vim-powerline'
-Bundle 'molokai'
+" Bundle 'molokai'
 "Bundle 'surround.vim'
 Bundle 'file-line'
 Bundle 'nelstrom/vim-mac-classic-theme.git'
@@ -437,16 +438,16 @@ Bundle 'othree/html5.vim'
 " Bundle 'Valloric/YouCompleteMe'
 
 " Colorscheme solarazied for vim
-"undle 'altercation/vim-colors-solarized'
+Bundle 'altercation/vim-colors-solarized'
 
 "-------------------------
 " Solarized. No, this time it will be jellybeans.
 
 " Without this solarized have dark background in my terminal
-"et g:solarized_termtrans=1
+let g:solarized_termtrans=1
 
 " Setting up light color scheme
-"et background=dark
+"set background=dark
 
 " Use solarized colorscheme
 "colorscheme solarized
@@ -467,14 +468,17 @@ Plugin 'tpope/vim-dispatch'
 
   let g:go_auto_type_info = 0
 
-nmap <silent> <leader>ga :GoAlternate<CR>
+nmap <silent> <leader>ga :GoAlternate!<CR>
 nmap <silent> <leader>gc :GoCoverageToggle<CR>
 nmap <silent> <leader>gr :GoRename<CR>
 nmap <silent> <leader>gi :GoImports<CR>
 nmap <silent> <leader>gj :%!python -m json.tool<CR>
+nmap <silent> <leader>jj :'<,'>!python -m json.tool<CR>
 nmap <silent> <leader>t :tabmove 0<CR>
 
+
 Bundle "SirVer/ultisnips"
+
 let g:go_metalinter_excludes = [".*\.pb\.go"]
 Plugin 'posva/vim-vue'
 au BufRead,BufNewFile *.{vue} setlocal filetype=vue
@@ -494,3 +498,26 @@ let g:go_fmt_fail_silently = 1
 "Plugin 'sekel/vim-vue-syntastic'
 "let g:syntastic_javascript_checkers = ['eslint']
 "let g:syntastic_vue_checkers = ['eslint']
+
+" function SaveSessionGit()
+"     let gitdir=system("git rev-parse --show-toplevel")
+"     let isnotgitdir=matchstr(gitdir, '^fatal:.*')
+"     let filename=""
+"     if empty(isnotgitdir)
+"           filename=  gitdir + "vimSession.vim"
+"             else
+"           filename= "vimSession.vim"
+"     endif
+"     echo filename
+"     :mksession! filename
+" endfunction
+
+nmap <silent> <leader>ll :source ~/tmp/vim/lastSession.vim<CR>
+map <F12> :mksession! ~/tmp/vim/vimSession.vim<CR>
+" map <F12> <esc> :call SaveSessionGit()<esc>
+nmap <silent> <leader>ls :source ~/tmp/vim/vimSession.vim<CR>
+
+" Plugin 'flazz/vim-colorschemes'
+" Plugin 'sunuslee/vim-plugin-random-colorscheme-picker'
+
+colorscheme zellner

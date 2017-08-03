@@ -1,0 +1,25 @@
+# Snippets for Go
+
+# variables declaration
+snippet bp "breakpoint"
+_ = "breakpoint"
+endsnippet
+
+
+snippet lin "log info"
+log.Printf("[INFO] ${0} \n",)
+endsnippet
+
+snippet lwa "log warn"
+log.Printf("[WARN] ${0} %v\n",err)
+endsnippet
+
+snippet ler "log error"
+log.Printf("[ERROR] ${0} %v\n",err)
+endsnippet
+snippet ife "if error"
+if err!=nil {
+    ${0}
+}
+endsnippet
+
