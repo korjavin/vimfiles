@@ -353,6 +353,7 @@ map <leader>sp :%s/\s\+$//e<CR> :%s@\v[\r\n]\s*\{@ {@ge<CR> :retab<CR>
 Bundle 'bbye'
 
 nnoremap <C-F7> <Plug>VimwikiDiaryPrevDay
+nnoremap <S-F7> <Plug>VimwikiDiaryNextDay
 " nmap <Leader>wf <Plug>VimwikiFollowLink
 
 Bundle 'nathanaelkane/vim-indent-guides'
@@ -374,7 +375,7 @@ map <leader>en :setlocal spell spelllang=en<CR>
 Bundle 'junegunn/vim-easy-align'
 
 let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\v[\/](lib[\/]vendor|cache|plugins|test|src[\/]github.com|node_modules)$',
+    \ 'dir':  '\v[\/](lib[\/]vendor|cache|plugins|test|src[\/]github.com|node_modules|pkg)$',
     \ }
 
 let g:ctrlp_switch_buffer = 'h'

@@ -22,4 +22,8 @@ if err!=nil {
     ${0}
 }
 endsnippet
-
+snippet ldd "log debug"
+if debug {
+    log.Printf("[DEBUG] ${1:${VISUAL}} = %v \n", $1)
+}
+endsnippet
