@@ -353,7 +353,7 @@ map <leader>sp :%s/\s\+$//e<CR> :%s@\v[\r\n]\s*\{@ {@ge<CR> :retab<CR>
 Bundle 'bbye'
 
 nnoremap <C-F7> <Plug>VimwikiDiaryPrevDay
-nnoremap <S-F7> <Plug>VimwikiDiaryNextDay
+nnoremap <S-C-F7> <Plug>VimwikiDiaryNextDay
 " nmap <Leader>wf <Plug>VimwikiFollowLink
 
 Bundle 'nathanaelkane/vim-indent-guides'
@@ -464,7 +464,7 @@ nmap <silent> <leader>t :tabmove 0<CR>
 
 Bundle "SirVer/ultisnips"
 
-let g:go_metalinter_excludes = [".*\.pb\.go"]
+let g:go_metalinter_excludes = [".*\.pb\.go","_test\.go"]
 Plugin 'posva/vim-vue'
 au BufRead,BufNewFile *.{vue} setlocal filetype=vue
 autocmd FileType vue syntax sync fromstart
@@ -516,3 +516,12 @@ call ctrlp_bdelete#init()
 Bundle "mbbill/undotree"
 nnoremap <F7> :UndotreeToggle<cr>
 
+Bundle "tpope/vim-fugitive"
+
+let g:go_list_type = "locationlist"
+let g:go_list_height = 5
+let g:go_metalinter_deadline = "15s"
+let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck','goconst']
+let g:go_metalinter_autosave_enabled = ['vet', 'golint','errcheck']
+
+map <S-F7> :lne<cr>
