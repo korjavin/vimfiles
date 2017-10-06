@@ -35,7 +35,6 @@ map <S-F3> :tabmove -<CR>
 map <F4> :NERDTreeClose<CR>:Bdelete<CR>
 map [1;2S <S-F4> " :h i_ctrl-v
 map <S-F4> :NERDTreeClose<CR>:bw<CR>
-map <F6> :tabclose<cr>
 map <F10> :quitall <CR>
 map <S-F10> :quitall! <CR>
 colorscheme symfony
@@ -514,17 +513,19 @@ call ctrlp_bdelete#init()
 "nnoremap <F7> :GundoToggle<CR>
 
 Bundle "mbbill/undotree"
-nnoremap <F7> :UndotreeToggle<cr>
+nnoremap <S-F7> :UndotreeToggle<cr>
 
 Bundle "tpope/vim-fugitive"
 
-let g:go_list_type = "locationlist"
+"let g:go_list_type = "locationlist"
+let g:go_list_type = "quickfix"
 let g:go_list_height = 5
 let g:go_metalinter_deadline = "150s"
 let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck','goconst','staticcheck','dupl','deadcode','ineffassign','megacheck','unconvert','misspell','vetshadow']
 let g:go_metalinter_autosave_enabled = ['vet', 'golint']
 
-map <S-F7> :lne<cr>
+map <F7> :lne<cr>
+map <F6> :cn<cr>
 let g:go_alternate_mode = "tabedit"
 
 let g:syntastic_auto_jump = 3
