@@ -520,8 +520,8 @@ Bundle "tpope/vim-fugitive"
 
 let g:go_list_type = "locationlist"
 let g:go_list_height = 5
-let g:go_metalinter_deadline = "15s"
-let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck','goconst','staticcheck','dupl','deadcode','ineffassign','gocyclo']
+let g:go_metalinter_deadline = "150s"
+let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck','goconst','staticcheck','dupl','deadcode','ineffassign','megacheck','unconvert','misspell','vetshadow']
 let g:go_metalinter_autosave_enabled = ['vet', 'golint']
 
 map <S-F7> :lne<cr>
