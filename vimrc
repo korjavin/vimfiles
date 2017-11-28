@@ -529,3 +529,6 @@ map <F6> :cn<cr>
 let g:go_alternate_mode = "tabedit"
 
 let g:syntastic_auto_jump = 3
+
+let g:vimwiki_conceallevel = 0
+let g:vimwiki_url_maxsave = 0

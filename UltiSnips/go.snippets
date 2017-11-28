@@ -6,20 +6,25 @@ log.Printf("[INFO] ${0}",)
 endsnippet
 
 snippet lwa "log warn"
-log.Printf("[WARN] ${0} %v",err)
+log.Printf("[WARN] ${0}%v",err)
 endsnippet
 
 snippet ler "log error"
-log.Printf("[ERROR] ${0} %v",err)
+log.Printf("[ERROR] ${0}%v",err)
 endsnippet
 snippet ife "if error"
 if err!=nil {
     ${0}
 }
 endsnippet
-snippet ifel "if errorol log"
+snippet ifel "if error log"
 if err!=nil {
     log.Printf("[ERROR] ${0} %v",err)
+}
+endsnippet
+snippet ifer "if error return"
+if err!=nil {
+    return err
 }
 endsnippet
 snippet ldd "log debug"
