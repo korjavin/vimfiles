@@ -88,3 +88,6 @@
 [submodule "bundle/vim-plugin-random-colorscheme-picker"]
 	path = bundle/vim-plugin-random-colorscheme-picker
 	url = https://github.com/sunuslee/vim-plugin-random-colorscheme-picker.git
+[submodule "bundle/vim-vue"]
+	path = bundle/vim-vue
+	url = https://github.com/posva/vim-vue.git
