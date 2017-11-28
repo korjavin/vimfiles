@@ -85,3 +85,6 @@
 [submodule "bundle/vim-colorschemes"]
 	path = bundle/vim-colorschemes
 	url = https://github.com/flazz/vim-colorschemes.git
+[submodule "bundle/vim-plugin-random-colorscheme-picker"]
+	path = bundle/vim-plugin-random-colorscheme-picker
+	url = https://github.com/sunuslee/vim-plugin-random-colorscheme-picker.git
