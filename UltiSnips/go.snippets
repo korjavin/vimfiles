@@ -2,15 +2,15 @@
 
 # variables declaration
 snippet lin "log info"
-log.Printf("[INFO] ${0}",)
+log.Infof("${0}",)
 endsnippet
 
 snippet lwa "log warn"
-log.Printf("[WARN] ${0}%v",err)
+log.Warnf("${0} %v",err)
 endsnippet
 
 snippet ler "log error"
-log.Printf("[ERROR] ${0}%v",err)
+log.Errorf("${0} %v",err)
 endsnippet
 snippet ife "if error"
 if err!=nil {
@@ -19,7 +19,7 @@ if err!=nil {
 endsnippet
 snippet ifel "if error log"
 if err!=nil {
-    log.Printf("[ERROR] ${0} %v",err)
+    log.Errorf("${0} %v",err)
 }
 endsnippet
 snippet ifer "if error return"
@@ -28,7 +28,22 @@ if err!=nil {
 }
 endsnippet
 snippet ldd "log debug"
-if debug {
-    log.Printf("[DEBUG] ${1:${VISUAL}} = %v", $1)
+log.Debugf("${1:${VISUAL}} = %v", $1)
+endsnippet
+snippet meter "metric"
+before := time.Now()
+${0}.Mark(time.Since(before).Seconds())
+endsnippet
+snippet mark "mark"
+${0}.Mark(time.Since(before).Seconds())
+endsnippet
+snippet rel "run with error log"
+if err:=${0};err!=nil{
+    log.Errorf("${1} %v",err)
+}
+endsnippet
+snippet rer "run with error return"
+if err:=${0};err!=nil{
+    return err
 }
 endsnippet

@@ -517,8 +517,8 @@ nnoremap <S-F7> :UndotreeToggle<cr>
 
 Bundle "tpope/vim-fugitive"
 
-"let g:go_list_type = "locationlist"
-let g:go_list_type = "quickfix"
+let g:go_list_type = "locationlist"
+"let g:go_list_type = "quickfix"
 let g:go_list_height = 5
 let g:go_metalinter_deadline = "150s"
 let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck','goconst','staticcheck','dupl','deadcode','ineffassign','megacheck','unconvert','misspell','vetshadow']
