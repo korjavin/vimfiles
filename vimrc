@@ -471,6 +471,11 @@ autocmd FileType vue syntax sync fromstart
 Plugin 'vim-syntastic/syntastic'
 " let g:syntastic_check_on_wq = 1
 let g:syntastic_go_checkers = ['go']
+let g:syntastic_auto_jump = 3
+let g:syntastic_always_populate_loc_list = 0
+set sessionoptions-=blank
+let g:go_fmt_fail_silently = 1
+
 
 " let g:go_metalinter_autosave_enabled = ['vet', 'golint','test']
 " augroup auto_go
@@ -478,7 +483,6 @@ let g:syntastic_go_checkers = ['go']
 "     autocmd BufWritePost *.go :GoBuild
 "     autocmd BufWritePost *_test.go :GoTest
 " augroup end
-let g:go_fmt_fail_silently = 1
 "Plugin 'sekel/vim-vue-syntastic'
 "let g:syntastic_javascript_checkers = ['eslint']
 "let g:syntastic_vue_checkers = ['eslint']
@@ -528,7 +532,6 @@ map <F7> :lne<cr>
 map <F6> :cn<cr>
 let g:go_alternate_mode = "tabedit"
 
-let g:syntastic_auto_jump = 3
 
 let g:vimwiki_conceallevel = 0
 let g:vimwiki_url_maxsave = 0
