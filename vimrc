@@ -448,7 +448,7 @@ Plugin 'tpope/vim-dispatch'
   let g:go_dispatch_enabled = 1
 
   let g:go_highlight_operators = 1
-  let g:go_metalinter_autosave = 1
+  let g:go_metalinter_autosave = 0
 
   let g:go_auto_type_info = 0
 
@@ -470,14 +470,14 @@ autocmd FileType vue syntax sync fromstart
 
 Plugin 'vim-syntastic/syntastic'
 " let g:syntastic_check_on_wq = 1
-let g:syntastic_go_checkers = ['go']
+let g:syntastic_go_checkers = ['go','goling','govet']
+" let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 let g:syntastic_auto_jump = 3
-let g:syntastic_always_populate_loc_list = 0
+let g:syntastic_always_populate_loc_list = 1
 set sessionoptions-=blank
 let g:go_fmt_fail_silently = 1
 
 
-" let g:go_metalinter_autosave_enabled = ['vet', 'golint','test']
 " augroup auto_go
 "     autocmd!
 "     autocmd BufWritePost *.go :GoBuild
