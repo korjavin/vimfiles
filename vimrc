@@ -374,7 +374,7 @@ map <leader>en :setlocal spell spelllang=en<CR>
 Bundle 'junegunn/vim-easy-align'
 
 let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\v[\/](lib[\/]vendor|cache|plugins|test|src[\/]github.com|node_modules|pkg)$',
+    \ 'dir':  '\v[\/](lib[\/]vendor|cache|plugins|test|src[\/]github.com|node_modules)$',
     \ }
 
 let g:ctrlp_switch_buffer = 'h'
