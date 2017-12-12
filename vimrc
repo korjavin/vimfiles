@@ -65,11 +65,12 @@ noremap <F9> :set list!<cr>
 
 
 set completeopt+=longest
-  let g:miniBufExplMapWindowNavVim = 1
-  let g:miniBufExplMapWindowNavArrows = 1
-  let g:miniBufExplMapCTabSwitchBufs = 1
-  let g:miniBufExplModSelTarget = 1
-  imap <C-@> <C-X><C-O>
+  " let g:miniBufExplMapWindowNavVim = 1
+  " let g:miniBufExplMapWindowNavArrows = 1
+  " let g:miniBufExplMapCTabSwitchBufs = 1
+  " let g:miniBufExplModSelTarget = 1
+  " imap <C-@> <C-X><C-O>
+
 
 "func CloseScratch()
 "    if bufname("%")==""
@@ -535,3 +536,5 @@ let g:go_alternate_mode = "tabedit"
 
 let g:vimwiki_conceallevel = 0
 let g:vimwiki_url_maxsave = 0
+set completeopt-=preview
+imap <C-@> <C-X><C-O>
