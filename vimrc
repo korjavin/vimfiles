@@ -46,7 +46,7 @@ map <S-F11> :colorscheme mac_classic<CR>
 autocmd VimLeavePre * silent mksession! ~/tmp/vim/lastSession.vim
 "map <F7> :nohlsearch<cr>
 "noremap <F7> :set hlsearch!<cr>
-noremap <F8> :NERDTreeToggle<cr>
+" noremap <F8> :NERDTreeToggle<cr>
 noremap <S-F8> :NERDTreeMirror<cr>
 noremap <F9> :set list!<cr>
 "map <F5> :set si! si?<CR>
@@ -538,3 +538,6 @@ let g:vimwiki_conceallevel = 0
 let g:vimwiki_url_maxsave = 0
 set completeopt-=preview
 imap <C-@> <C-X><C-O>
+
+Bundle 'jistr/vim-nerdtree-tabs'
+noremap <F8> :NERDTreeTabsToggle<cr>
