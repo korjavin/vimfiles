@@ -457,9 +457,14 @@ nmap <silent> <leader>ga :GoAlternate!<CR>
 nmap <silent> <leader>gc :GoCoverageToggle<CR>
 nmap <silent> <leader>gr :GoRename<CR>
 nmap <silent> <leader>gi :GoImports<CR>
+nmap <silent> <leader>ge :GoReferrers<CR>
+nmap <silent> <leader>gb :GoBuild<CR>
+nmap <silent> <leader>gm :GoMetaLinter<CR>
+
 nmap <silent> <leader>gj :%!python -m json.tool<CR>
 nmap <silent> <leader>jj :'<,'>!python -m json.tool<CR>
 nmap <silent> <leader>t :tabmove 0<CR>
+nmap <silent> <leader>t1 :tabmove -1<CR>
 
 
 Bundle "SirVer/ultisnips"
@@ -502,9 +507,10 @@ let g:go_fmt_fail_silently = 1
 " endfunction
 
 nmap <silent> <leader>ll :source ~/tmp/vim/lastSession.vim<CR>
-map <F12> :mksession! ~/tmp/vim/vimSession.vim<CR>
+" map <F12> :mksession! ~/tmp/vim/vimSession.vim<CR>
 " map <F12> <esc> :call SaveSessionGit()<esc>
 nmap <silent> <leader>ls :source ~/tmp/vim/vimSession.vim<CR>
+nmap <leader>ss :mksession! ~/tmp/vim/vimSession.vim<CR>
 
 " Plugin 'flazz/vim-colorschemes'
 " Plugin 'sunuslee/vim-plugin-random-colorscheme-picker'
@@ -540,4 +546,5 @@ set completeopt-=preview
 imap <C-@> <C-X><C-O>
 
 Bundle 'jistr/vim-nerdtree-tabs'
-noremap <F8> :NERDTreeTabsToggle<cr>
+" noremap <F8> :NERDTreeTabsToggle<cr>
+noremap <F8> :NERDTreeToggle<cr>
