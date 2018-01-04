@@ -375,7 +375,7 @@ map <leader>en :setlocal spell spelllang=en<CR>
 Bundle 'junegunn/vim-easy-align'
 
 let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\v[\/](lib[\/]vendor|cache|plugins|test|src[\/]github.com|node_modules)$',
+    \ 'dir':  '\v[\/](lib[\/]vendor|cache|plugins|test|src[\/]github.com|node_modules|vendor)$',
     \ }
 
 let g:ctrlp_switch_buffer = 'h'
@@ -463,7 +463,7 @@ nmap <silent> <leader>gm :GoMetaLinter<CR>
 
 nmap <silent> <leader>gj :%!python -m json.tool<CR>
 nmap <silent> <leader>jj :'<,'>!python -m json.tool<CR>
-nmap <silent> <leader>t :tabmove 0<CR>
+nmap <silent> <leader>t0 :tabmove 0<CR>
 nmap <silent> <leader>t1 :tabmove -1<CR>
 
 
@@ -548,3 +548,4 @@ imap <C-@> <C-X><C-O>
 Bundle 'jistr/vim-nerdtree-tabs'
 " noremap <F8> :NERDTreeTabsToggle<cr>
 noremap <F8> :NERDTreeToggle<cr>
+let g:vimwiki_ext2syntax = {'doc.go': 'media'}

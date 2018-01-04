@@ -21,8 +21,17 @@ snippet pler "log error"
 p.Logger.Errorf("${0} %v",err)
 endsnippet
 
+snippet plne "log never"
+p.Logger.Neverf("${0} %v",err)
+endsnippet
+
 snippet ife "if error"
 if err!=nil {
+    ${0}
+}
+endsnippet
+snippet ifo "if o"
+if !ok {
     ${0}
 }
 endsnippet
