@@ -133,8 +133,6 @@ set timeout timeoutlen=3000 ttimeoutlen=100
 
 nnoremap <leader>es :w! /tmp/sudoSave \| let $fileToSave=expand('%') \| let $fileToSaveBackup=expand('%').'~' \| !sudo cp $fileToSave $fileToSaveBackup && sudo cp /tmp/sudoSave $fileToSave<CR><ESC>:e!<CR>
 
-" Yaml
-au BufNewFile,BufRead *.yaml,*.yml setf yaml let b:did_indent = 1
 au BufNewFile,BufRead *.twig    setf htmljinja
 
 
@@ -549,3 +547,6 @@ Bundle 'jistr/vim-nerdtree-tabs'
 " noremap <F8> :NERDTreeTabsToggle<cr>
 noremap <F8> :NERDTreeToggle<cr>
 let g:vimwiki_ext2syntax = {'doc.go': 'media'}
+" Yaml
+au BufNewFile,BufRead *.yaml,*.yml setf yaml let b:did_indent = 1
+autocmd FileType yaml setl indentkeys-=<:> ts=2 sts=2 sw=2 expandtab
