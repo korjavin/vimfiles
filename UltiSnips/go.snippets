@@ -1,8 +1,11 @@
 # Snippets for Go
 
-# variables declaration
 snippet lin "log info"
 log.Infof("${0}",)
+endsnippet
+
+snippet pin "log info"
+log.Printf("[INFO] ${0}",)
 endsnippet
 
 snippet plin "log info"
@@ -13,8 +16,16 @@ snippet lwa "log warn"
 log.Warnf("${0} %v",err)
 endsnippet
 
+snippet pwa "log warn"
+log.Printf("[WARN] ${0} %v",err)
+endsnippet
+
 snippet ler "log error"
 log.Errorf("${0} %v",err)
+endsnippet
+
+snippet per "log error"
+log.Printf("[ERROR] ${0} %v",err)
 endsnippet
 
 snippet pler "log error"
@@ -44,16 +55,21 @@ endsnippet
 snippet ldd "log debug"
 log.Debugf("${1:${VISUAL}} = %v", $1)
 endsnippet
+
+snippet pdd "log debug"
+log.Printf("${1:${VISUAL}} = %v", $1)
+endsnippet
+
 snippet pldd "log debug"
 p.Logger.Debugf("${1:${VISUAL}} = %v", $1)
 endsnippet
 
 snippet meter "metric"
 before := time.Now()
-${0}.Mark(time.Since(before).Seconds())
+${0} .Mark(time.Since(before).Seconds())
 endsnippet
 snippet mark "mark"
-${0}.Mark(time.Since(before).Seconds())
+${0} .Mark(time.Since(before).Seconds())
 endsnippet
 
 snippet ifer "if error return"
