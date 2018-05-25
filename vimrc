@@ -552,3 +552,5 @@ au BufNewFile,BufRead *.yaml,*.yml setf yaml let b:did_indent = 1
 autocmd FileType yaml setl indentkeys-=<:> ts=2 sts=2 sw=2 expandtab
 
 " Bundle "urbainvaes/vim-remembrall"
+" for pair brackets
+hi MatchParen cterm=none ctermbg=green ctermfg=blue
