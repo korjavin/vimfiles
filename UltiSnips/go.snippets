@@ -8,10 +8,6 @@ snippet pin "log info"
 log.Printf("[INFO] ${0}",)
 endsnippet
 
-snippet plin "log info"
-p.Logger.Infof("${0}",)
-endsnippet
-
 snippet lwa "log warn"
 log.Warnf("${0} %v",err)
 endsnippet
@@ -28,13 +24,10 @@ snippet per "log error"
 log.Printf("[ERROR] ${0} %v",err)
 endsnippet
 
-snippet pler "log error"
-p.Logger.Errorf("${0} %v",err)
+snippet pne "print never"
+log.Printf("[Never] ${0} %v",err)
 endsnippet
 
-snippet plne "log never"
-p.Logger.Neverf("${0} %v",err)
-endsnippet
 
 snippet ife "if error"
 if err!=nil {
@@ -52,16 +45,18 @@ if err!=nil {
 }
 endsnippet
 
+snippet ifep "if error print"
+if err!=nil {
+    log.Printf("[ERROR] ${0} %v",err)
+}
+endsnippet
+
 snippet ldd "log debug"
 log.Debugf("${1:${VISUAL}} = %v", $1)
 endsnippet
 
 snippet pdd "log debug"
-log.Printf("[DEBUG] ${1:${VISUAL}} = %v", $1)
-endsnippet
-
-snippet pldd "log debug"
-p.Logger.Debugf("${1:${VISUAL}} = %v", $1)
+log.Printf("[DEBUG] $1 = %v", ${1:${VISUAL}})
 endsnippet
 
 snippet meter "metric"
@@ -85,5 +80,11 @@ endsnippet
 snippet rer "run with error return"
 if err:=${0};err!=nil{
     return err
+}
+endsnippet
+
+snippet ifd "if debug"
+if debug {
+    log.Printf("[DEBUG] $1 = %v", ${1:${VISUAL}})
 }
 endsnippet
