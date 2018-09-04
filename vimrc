@@ -554,3 +554,5 @@ autocmd FileType yaml setl indentkeys-=<:> ts=2 sts=2 sw=2 expandtab
 " Bundle "urbainvaes/vim-remembrall"
 " for pair brackets
 hi MatchParen cterm=none ctermbg=green ctermfg=blue
+
+Bundle "Shougo/denite.nvim"
