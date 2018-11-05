@@ -473,11 +473,11 @@ au BufRead,BufNewFile *.{vue} setlocal filetype=vue
 autocmd FileType vue syntax sync fromstart
 
 Plugin 'vim-syntastic/syntastic'
-" let g:syntastic_check_on_wq = 1
-let g:syntastic_go_checkers = ['go','goling','govet']
+let g:syntastic_check_on_wq = 0
+" let g:syntastic_go_checkers = ['go','goling','govet']
 " let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
-let g:syntastic_auto_jump = 3
-let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_jump = 3
+" let g:syntastic_always_populate_loc_list = 1
 set sessionoptions-=blank
 let g:go_fmt_fail_silently = 1
 
@@ -529,9 +529,9 @@ Bundle "tpope/vim-fugitive"
 let g:go_list_type = "locationlist"
 "let g:go_list_type = "quickfix"
 let g:go_list_height = 5
-let g:go_metalinter_deadline = "150s"
-let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck','goconst','staticcheck','dupl','deadcode','ineffassign','megacheck','unconvert','misspell','vetshadow']
-let g:go_metalinter_autosave_enabled = ['vet', 'golint']
+" let g:go_metalinter_deadline = "150s"
+" let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck','goconst','staticcheck','dupl','deadcode','ineffassign','megacheck','unconvert','misspell','vetshadow']
+" let g:go_metalinter_autosave_enabled = ['vet', 'golint']
 
 map <F7> :lne<cr>
 map <F6> :cn<cr>
@@ -556,3 +556,12 @@ autocmd FileType yaml setl indentkeys-=<:> ts=2 sts=2 sw=2 expandtab
 hi MatchParen cterm=none ctermbg=green ctermfg=blue
 
 Bundle "Shougo/denite.nvim"
+Plugin 'w0rp/ale'
+call ale#linter#Define('go', {
+\   'name': 'revive',
+\   'output_stream': 'both',
+\   'executable': 'revive',
+\   'read_buffer': 0,
+\   'command': 'revive %t',
+\   'callback': 'ale#handlers#unix#HandleAsWarning',
+\})
