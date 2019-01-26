@@ -274,7 +274,7 @@ let perl_include_pod = 1
 
 let perl_extended_vars  = 1
 
-let g:vimwiki_list = [{'path': '~/.vimwiki/'}]
+let g:vimwiki_list = [{'path': '~/.vimwiki/'},{'path': '~/.vimwiki1/'}]
 
 "vundle
 
