@@ -350,8 +350,8 @@ map <leader>sp :%s/\s\+$//e<CR> :%s@\v[\r\n]\s*\{@ {@ge<CR> :retab<CR>
 
 Bundle 'bbye'
 
-nnoremap <C-F7> <Plug>VimwikiDiaryPrevDay
-nnoremap <S-C-F7> <Plug>VimwikiDiaryNextDay
+nmap <leader>wp <Plug>VimwikiDiaryPrevDay
+nmap <leader>wn <Plug>VimwikiDiaryNextDay
 " nmap <Leader>wf <Plug>VimwikiFollowLink
 
 Bundle 'nathanaelkane/vim-indent-guides'
@@ -456,7 +456,7 @@ nmap <silent> <leader>gc :GoCoverageToggle<CR>
 nmap <silent> <leader>gr :GoRename<CR>
 nmap <silent> <leader>gi :GoImports<CR>
 nmap <silent> <leader>ge :GoReferrers<CR>
-nmap <silent> <leader>gb :GoBuild<CR>
+nmap <silent> <leader>gb :Gblame<CR>
 nmap <silent> <leader>gm :GoMetaLinter<CR>
 
 nmap <silent> <leader>gj :%!python -m json.tool<CR>
@@ -468,12 +468,13 @@ nmap <silent> <leader>t1 :tabmove -1<CR>
 Bundle "SirVer/ultisnips"
 
 let g:go_metalinter_excludes = [".*\.pb\.go","_test\.go"]
-Plugin 'posva/vim-vue'
-au BufRead,BufNewFile *.{vue} setlocal filetype=vue
-autocmd FileType vue syntax sync fromstart
+" Plugin 'posva/vim-vue'
+" au BufRead,BufNewFile *.{vue} setlocal filetype=vue
+" autocmd FileType vue syntax sync fromstart
 
 Plugin 'vim-syntastic/syntastic'
 let g:syntastic_check_on_wq = 0
+" let g:syntastic_check_on_open = 0
 " let g:syntastic_go_checkers = ['go','goling','govet']
 " let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 " let g:syntastic_auto_jump = 3
@@ -509,6 +510,12 @@ nmap <silent> <leader>ll :source ~/tmp/vim/lastSession.vim<CR>
 " map <F12> <esc> :call SaveSessionGit()<esc>
 nmap <silent> <leader>ls :source ~/tmp/vim/vimSession.vim<CR>
 nmap <leader>ss :mksession! ~/tmp/vim/vimSession.vim<CR>
+nmap <leader>s1 :mksession! ~/tmp/vim/vimSession1.vim<CR>
+nmap <silent> <leader>l1 :source ~/tmp/vim/vimSession1.vim<CR>
+nmap <leader>s2 :mksession! ~/tmp/vim/vimSession2.vim<CR>
+nmap <silent> <leader>l2 :source ~/tmp/vim/vimSession2.vim<CR>
+nmap <leader>s3 :mksession! ~/tmp/vim/vimSession3.vim<CR>
+nmap <silent> <leader>l3 :source ~/tmp/vim/vimSession3.vim<CR>
 
 " Plugin 'flazz/vim-colorschemes'
 " Plugin 'sunuslee/vim-plugin-random-colorscheme-picker'
@@ -526,16 +533,17 @@ nnoremap <S-F7> :UndotreeToggle<cr>
 
 Bundle "tpope/vim-fugitive"
 
-let g:go_list_type = "locationlist"
-"let g:go_list_type = "quickfix"
+"let g:go_list_type = "locationlist"
+let g:go_list_type = "quickfix"
 let g:go_list_height = 5
 " let g:go_metalinter_deadline = "150s"
 " let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck','goconst','staticcheck','dupl','deadcode','ineffassign','megacheck','unconvert','misspell','vetshadow']
 " let g:go_metalinter_autosave_enabled = ['vet', 'golint']
 
+let g:go_list_type_commands = {"GoReferrers": "quickfix"}
 map <F7> :lne<cr>
 map <F6> :cn<cr>
-let g:go_alternate_mode = "tabedit"
+let g:go_alternate_mode = "vsplit"
 
 
 let g:vimwiki_conceallevel = 0
@@ -557,11 +565,14 @@ hi MatchParen cterm=none ctermbg=green ctermfg=blue
 
 Bundle "Shougo/denite.nvim"
 Plugin 'w0rp/ale'
-call ale#linter#Define('go', {
-\   'name': 'revive',
-\   'output_stream': 'both',
-\   'executable': 'revive',
-\   'read_buffer': 0,
-\   'command': 'revive %t',
-\   'callback': 'ale#handlers#unix#HandleAsWarning',
-\})
+let g:ale_go_golint_options = "-e Comment"
+
+" call ale#linter#Define('go', {
+" \   'name': 'revive',
+" \   'output_stream': 'both',
+" \   'executable': 'revive',
+" \   'read_buffer': 0,
+" \   'command': 'revive %t',
+" \   'callback': 'ale#handlers#unix#HandleAsWarning',
+" \})
+" Plugin 'rust-lang/rust.vim'
