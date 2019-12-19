@@ -455,12 +455,16 @@ nmap <silent> <leader>ga :GoAlternate!<CR>
 nmap <silent> <leader>gc :GoCoverageToggle<CR>
 nmap <silent> <leader>gr :GoRename<CR>
 nmap <silent> <leader>gi :GoImports<CR>
+nmap <silent> <leader>gt :GoTest<CR>
 nmap <silent> <leader>ge :GoReferrers<CR>
 nmap <silent> <leader>gb :Gblame<CR>
-nmap <silent> <leader>gm :GoMetaLinter<CR>
+nmap <silent> <leader>gn :GoBuild<CR>
+nmap <silent> <leader>go :GoImplements<CR>
+nmap <silent> <leader>gma :GoMetaLinter --config=/home/iv/Projects/go/src/g.3pm.ai/docker-golangci/golangci-strict.yml <CR>
+nmap <silent> <leader>gml :GoMetaLinter --config=/home/iv/Projects/go/src/g.3pm.ai/docker-golangci/golangci-strict-lib.yml <CR>
 
 nmap <silent> <leader>gj :%!python -m json.tool<CR>
-nmap <silent> <leader>jj :'<,'>!python -m json.tool<CR>
+map <silent> <leader>jj :'<,'>!python -m json.tool<CR>
 nmap <silent> <leader>t0 :tabmove 0<CR>
 nmap <silent> <leader>t1 :tabmove -1<CR>
 
@@ -537,8 +541,8 @@ Bundle "tpope/vim-fugitive"
 let g:go_list_type = "quickfix"
 let g:go_list_height = 5
 " let g:go_metalinter_deadline = "150s"
-" let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck','goconst','staticcheck','dupl','deadcode','ineffassign','megacheck','unconvert','misspell','vetshadow']
-" let g:go_metalinter_autosave_enabled = ['vet', 'golint']
+"let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck','goconst','staticcheck','dupl','deadcode','ineffassign','megacheck','unconvert','misspell','vetshadow']
+"let g:go_metalinter_autosave_enabled = ['vet', 'golint']
 
 let g:go_list_type_commands = {"GoReferrers": "quickfix"}
 map <F7> :lne<cr>
@@ -564,7 +568,8 @@ autocmd FileType yaml setl indentkeys-=<:> ts=2 sts=2 sw=2 expandtab
 hi MatchParen cterm=none ctermbg=green ctermfg=blue
 
 Bundle "Shougo/denite.nvim"
-Plugin 'w0rp/ale'
+Plugin 'dense-analysis/ale'
+let g:ale_linters = {'go': ['gofmt', 'golint', 'govet', 'remove_trailing_lines','trim_whitespace']}
 let g:ale_go_golint_options = "-e Comment"
 
 " call ale#linter#Define('go', {
@@ -576,3 +581,7 @@ let g:ale_go_golint_options = "-e Comment"
 " \   'callback': 'ale#handlers#unix#HandleAsWarning',
 " \})
 " Plugin 'rust-lang/rust.vim'
+let g:go_autodetect_gopath = 1
+let g:go_get_update = 0
+" let g:go_debug=['shell-commands']
+let g:go_def_reuse_buffer = 0
