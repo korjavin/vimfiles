@@ -1,6 +1,5 @@
 set ru
 set si
-set softtabstop=3
 "set shiftwidth=3
 "set tabstop=3
 set sta
@@ -37,9 +36,9 @@ map [1;2S <S-F4> " :h i_ctrl-v
 map <S-F4> :NERDTreeClose<CR>:bw<CR>
 map <F10> :quitall <CR>
 map <S-F10> :quitall! <CR>
-colorscheme symfony
+"colorscheme symfony
 set background=dark
-map <F11> :colorscheme zellner<CR>
+map <F11> :colorscheme base16-solarized-light<CR>
 "map <F12> :colorscheme tango<CR>
 map <S-F11> :colorscheme mac_classic<CR>
 "map <F12> :colorscheme desert<CR>
@@ -94,14 +93,13 @@ set t_Co=255
 "hi CursorLine guibg=#dbdbdb gui=none
 "map <F6> :setlocal cursorline!<cr>
 "autocmd InsertEnter * hi Normal guibg=green
-"autocmd InsertLeave * hi Normal guibg=blue
+"On Mac OS X and Windows, the * and + registers both point to the system clipboard so unnamed and unnamedplus have the same effect: the unnamed register is synchronized with the system clipboard.autocmd InsertLeave * hi Normal guibg=blue
 set keymap=russian-jcukenwin
 set iminsert=0
 set imsearch=-1
 set shortmess=tToOI
 "set statusline=%t\ %y%m%r[%{&fileencoding}]%<[%{strftime(\"%d.%m.%y\",getftime(expand(\"%:p\")))}]%k%=%-14.(%l,%c%V%)\ %P
 set listchars+=tab:>-,trail:-,extends:>,precedes:<,nbsp:%
-set clipboard+=unnamed
 set pastetoggle=<F1>
 "autocmd InsertEnter * set cursorline
 "autocmd InsertEnter * highlight StatusLine ctermbg=52
@@ -125,87 +123,15 @@ set pastetoggle=<F1>
 set fileencodings=ucs-bom,utf-8,cp1251,koi8-r,ibm866,default,latin1
 retab
 set expandtab
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set backspace=indent,eol,start
 set timeout timeoutlen=3000 ttimeoutlen=100
 
 nnoremap <leader>es :w! /tmp/sudoSave \| let $fileToSave=expand('%') \| let $fileToSaveBackup=expand('%').'~' \| !sudo cp $fileToSave $fileToSaveBackup && sudo cp /tmp/sudoSave $fileToSave<CR><ESC>:e!<CR>
 
 au BufNewFile,BufRead *.twig    setf htmljinja
-
-
-
-
-"  map ё `
-"  map й q
-"  map ц w
-"  map у e
-"  map к r
-"  map е t
-"  map н y
-"  map г u
-"  map ш i
-"  map щ o
-"  map з p
-"  map х [
-"  map ъ ]
-"  map ф a
-"  map ы s
-"  map в d
-"  map а f
-"  map п g
-"  map р h
-"  map о j
-"  map л k
-"  map д l
-"  map ж ;
-"  map э '
-"  map я z
-"  map ч x
-"  map с c
-"  map м v
-"  map и b
-"  map т n
-"  map ь m
-"  map б ,
-"  map ю .
-"  map Ё ~
-"  map Й Q
-"  map Ц W
-"  map У E
-"  map К R
-"  map Е T
-"  map Н Y
-"  map Г U
-"  map Ш I
-"  map Щ O
-"  map З P
-"  map Х {
-"  map Ъ }
-"  map Ф A
-"  map Ы S
-"  map В D
-"  map А F
-"  map П G
-"  map Р H
-"  map О J
-"  map Л K
-"  map Д L
-"  map Ж :
-"  map Э "
-"  map Я Z
-"  map Ч X
-"  map С C
-"  map М V
-"  map И B
-"  map Т N
-"  map Ь M
-"  map Б <
-"  map Ю >
-
-
 
 let g:snippetsEmu_key="<S-Tab>"
 
@@ -476,8 +402,8 @@ let g:go_metalinter_excludes = [".*\.pb\.go","_test\.go"]
 " au BufRead,BufNewFile *.{vue} setlocal filetype=vue
 " autocmd FileType vue syntax sync fromstart
 
-Plugin 'vim-syntastic/syntastic'
-let g:syntastic_check_on_wq = 0
+"Plugin 'vim-syntastic/syntastic'
+"let g:syntastic_check_on_wq = 0
 " let g:syntastic_check_on_open = 0
 " let g:syntastic_go_checkers = ['go','goling','govet']
 " let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
@@ -524,7 +450,7 @@ nmap <silent> <leader>l3 :source ~/tmp/vim/vimSession3.vim<CR>
 " Plugin 'flazz/vim-colorschemes'
 " Plugin 'sunuslee/vim-plugin-random-colorscheme-picker'
 
-colorscheme zellner
+"colorscheme zellner
 
 Bundle "d11wtq/ctrlp_bdelete.vim"
 call ctrlp_bdelete#init()
@@ -537,8 +463,8 @@ nnoremap <S-F7> :UndotreeToggle<cr>
 
 Bundle "tpope/vim-fugitive"
 
-"let g:go_list_type = "locationlist"
-let g:go_list_type = "quickfix"
+let g:go_list_type = "locationlist"
+" let g:go_list_type = "quickfix"
 let g:go_list_height = 5
 " let g:go_metalinter_deadline = "150s"
 "let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck','goconst','staticcheck','dupl','deadcode','ineffassign','megacheck','unconvert','misspell','vetshadow']
@@ -568,20 +494,38 @@ autocmd FileType yaml setl indentkeys-=<:> ts=2 sts=2 sw=2 expandtab
 hi MatchParen cterm=none ctermbg=green ctermfg=blue
 
 Bundle "Shougo/denite.nvim"
-Plugin 'dense-analysis/ale'
-let g:ale_linters = {'go': ['gofmt', 'golint', 'govet', 'remove_trailing_lines','trim_whitespace']}
-let g:ale_go_golint_options = "-e Comment"
+"Plugin 'dense-analysis/ale'
+"let g:ale_linters = {'go': ['gofmt', 'golint', 'govet', 'remove_trailing_lines','trim_whitespace']}
+"let g:ale_go_golint_options = "-e Comment"
 
-" call ale#linter#Define('go', {
-" \   'name': 'revive',
-" \   'output_stream': 'both',
-" \   'executable': 'revive',
-" \   'read_buffer': 0,
-" \   'command': 'revive %t',
-" \   'callback': 'ale#handlers#unix#HandleAsWarning',
-" \})
 " Plugin 'rust-lang/rust.vim'
 let g:go_autodetect_gopath = 1
 let g:go_get_update = 0
 " let g:go_debug=['shell-commands']
 let g:go_def_reuse_buffer = 0
+
+com! FormatXML :%!python3 -c "import xml.dom.minidom, sys; print(xml.dom.minidom.parse(sys.stdin).toprettyxml())"
+
+nmap <silent> <leader>gx :FormatXML<Cr>
+
+
+let g:go_debug_windows = {
+            \ 'vars':       'leftabove 30vnew',
+            \ }
+
+" \ 'out':        'botright 5new',
+Plugin 'chriskempson/base16-vim'
+set termguicolors
+colorscheme base16-solarized-light
+
+nmap <silent> <leader>dt :GoDebugTest<Cr>
+nmap <silent> <leader>db :GoDebugBreakpoint<Cr>
+nmap <silent> <leader>dc :GoDebugContinue<Cr>
+nmap <silent> <leader>dn :GoDebugNext<Cr>
+nmap <silent> <leader>ds :GoDebugStep<Cr>
+nmap <silent> <leader>dr :GoDebugReset<Cr>
+nmap <silent> <leader>dk :GoDebugStop<Cr>
+
+set clipboard=unnamed
+
+Plugin 'ConradIrwin/vim-bracketed-paste'
