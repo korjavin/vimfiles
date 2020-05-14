@@ -526,6 +526,6 @@ nmap <silent> <leader>ds :GoDebugStep<Cr>
 nmap <silent> <leader>dr :GoDebugReset<Cr>
 nmap <silent> <leader>dk :GoDebugStop<Cr>
 
-set clipboard=unnamed
+set clipboard+=unnamed
 
 Plugin 'ConradIrwin/vim-bracketed-paste'
