@@ -88,3 +88,21 @@ if debug {
     log.Printf("[DEBUG] $1 = %v", ${1:${VISUAL}})
 }
 endsnippet
+
+snippet ts 
+ts = time.Now()
+endsnippet
+
+snippet ts: 
+ts := time.Now()
+endsnippet
+
+snippet ooa
+c.Metrics.Handlers.PlaceOrder.${0}.
+  Observe(time.Since(tsAll).Seconds())
+endsnippet
+
+snippet oo 
+	c.Metrics.PlaceOrder.Operations.WithLabelValues("${0}").
+		Observe(time.Since(ts).Seconds())
+endsnippet

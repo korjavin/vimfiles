@@ -393,6 +393,7 @@ nmap <silent> <leader>gj :%!python -m json.tool<CR>
 map <silent> <leader>jj :'<,'>!python -m json.tool<CR>
 nmap <silent> <leader>t0 :tabmove 0<CR>
 nmap <silent> <leader>t1 :tabmove -1<CR>
+nmap <silent> <leader>t2 :tabmove +1<CR>
 
 
 Bundle "SirVer/ultisnips"
@@ -529,3 +530,4 @@ nmap <silent> <leader>dk :GoDebugStop<Cr>
 set clipboard+=unnamed
 
 Plugin 'ConradIrwin/vim-bracketed-paste'
+Plugin 'vim-scripts/dbext.vim'
