@@ -244,9 +244,7 @@ au FileType haskell set makeprg=/usr/bin/ghc\ \%
 au FileType lhaskell map <F5>  <esc>:!ghci %<CR>
 au FileType groovy map <F5>  <esc>:!groovy %<CR>
 au FileType ruby map <F5>  <esc>:!ruby %<CR>
-au FileType go map <F5>  <esc>:GoRun<CR>
 "au FileType go set listchars=tab:,trail:-,extends:>,precedes:<,nbsp:%
-au FileType go set nolist
 
 "au FileType html set equalprg="tidy -config ~/.vim/tidy.conf"
 
@@ -330,7 +328,6 @@ set splitright
 
 highlight lCursor guifg=NONE guibg=Cyan
 
-let g:go_auto_sameids = 0
 
 nmap <silent> <leader>f :NERDTreeFind<CR>
 
@@ -365,17 +362,9 @@ let g:solarized_termtrans=1
 
 Plugin 'Chiel92/vim-autoformat'
 
-  let g:go_jump_to_error = 1
-  let g:go_fmt_experimental = 1
 
 Plugin 'tpope/vim-dispatch'
 
-  let g:go_dispatch_enabled = 1
-
-  let g:go_highlight_operators = 1
-  let g:go_metalinter_autosave = 0
-
-  let g:go_auto_type_info = 0
 
 nmap <silent> <leader>ga :GoAlternate!<CR>
 nmap <silent> <leader>gc :GoCoverageToggle<CR>
@@ -398,7 +387,6 @@ nmap <silent> <leader>t2 :tabmove +1<CR>
 
 Bundle "SirVer/ultisnips"
 
-let g:go_metalinter_excludes = [".*\.pb\.go","_test\.go"]
 " Plugin 'posva/vim-vue'
 " au BufRead,BufNewFile *.{vue} setlocal filetype=vue
 " autocmd FileType vue syntax sync fromstart
@@ -411,7 +399,6 @@ let g:go_metalinter_excludes = [".*\.pb\.go","_test\.go"]
 " let g:syntastic_auto_jump = 3
 " let g:syntastic_always_populate_loc_list = 1
 set sessionoptions-=blank
-let g:go_fmt_fail_silently = 1
 
 
 " augroup auto_go
@@ -464,17 +451,8 @@ nnoremap <S-F7> :UndotreeToggle<cr>
 
 Bundle "tpope/vim-fugitive"
 
-let g:go_list_type = "locationlist"
-" let g:go_list_type = "quickfix"
-let g:go_list_height = 5
-" let g:go_metalinter_deadline = "150s"
-"let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck','goconst','staticcheck','dupl','deadcode','ineffassign','megacheck','unconvert','misspell','vetshadow']
-"let g:go_metalinter_autosave_enabled = ['vet', 'golint']
-
-let g:go_list_type_commands = {"GoReferrers": "quickfix"}
 map <F7> :lne<cr>
 map <F6> :cn<cr>
-let g:go_alternate_mode = "vsplit"
 
 
 let g:vimwiki_conceallevel = 0
@@ -500,25 +478,53 @@ Bundle "Shougo/denite.nvim"
 "let g:ale_go_golint_options = "-e Comment"
 
 " Plugin 'rust-lang/rust.vim'
-let g:go_autodetect_gopath = 1
-let g:go_get_update = 0
-" let g:go_debug=['shell-commands']
-let g:go_def_reuse_buffer = 0
 
 com! FormatXML :%!python3 -c "import xml.dom.minidom, sys; print(xml.dom.minidom.parse(sys.stdin).toprettyxml())"
 
 nmap <silent> <leader>gx :FormatXML<Cr>
 
 
+Plugin 'chriskempson/base16-vim'
+set termguicolors
+colorscheme base16-solarized-light
+
+set clipboard+=unnamed
+
+Plugin 'ConradIrwin/vim-bracketed-paste'
+Plugin 'vim-scripts/dbext.vim'
+
+let g:go_auto_sameids = 0
+au FileType go map <F5>  <esc>:GoRun<CR>
+au FileType go set nolist
+let g:go_jump_to_error = 1
+let g:go_fmt_experimental = 1
+let g:go_dispatch_enabled = 1
+
+let g:go_highlight_operators = 1
+let g:go_metalinter_autosave = 0
+
+let g:go_auto_type_info = 0
+let g:go_metalinter_excludes = [".*\.pb\.go","_test\.go"]
+let g:go_fmt_fail_silently = 1
+let g:go_list_type = "locationlist"
+" let g:go_list_type = "quickfix"
+let g:go_list_height = 5
+" let g:go_metalinter_deadline = "150s"
+"let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck','goconst','staticcheck','dupl','deadcode','ineffassign','megacheck','unconvert','misspell','vetshadow']
+"let g:go_metalinter_autosave_enabled = ['vet', 'golint']
+
+let g:go_list_type_commands = {"GoReferrers": "quickfix"}
+let g:go_alternate_mode = "vsplit"
+let g:go_autodetect_gopath = 1
+let g:go_get_update = 0
+" let g:go_debug=['shell-commands']
+let g:go_def_reuse_buffer = 0
+
 let g:go_debug_windows = {
             \ 'vars':       'leftabove 30vnew',
             \ }
 
 " \ 'out':        'botright 5new',
-Plugin 'chriskempson/base16-vim'
-set termguicolors
-colorscheme base16-solarized-light
-
 nmap <silent> <leader>dt :GoDebugTest<Cr>
 nmap <silent> <leader>db :GoDebugBreakpoint<Cr>
 nmap <silent> <leader>dc :GoDebugContinue<Cr>
@@ -527,7 +533,3 @@ nmap <silent> <leader>ds :GoDebugStep<Cr>
 nmap <silent> <leader>dr :GoDebugReset<Cr>
 nmap <silent> <leader>dk :GoDebugStop<Cr>
 
-set clipboard+=unnamed
-
-Plugin 'ConradIrwin/vim-bracketed-paste'
-Plugin 'vim-scripts/dbext.vim'
