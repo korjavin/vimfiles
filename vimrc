@@ -493,38 +493,38 @@ set clipboard+=unnamed
 Plugin 'ConradIrwin/vim-bracketed-paste'
 Plugin 'vim-scripts/dbext.vim'
 
-let g:go_auto_sameids = 0
-au FileType go map <F5>  <esc>:GoRun<CR>
-au FileType go set nolist
-let g:go_jump_to_error = 1
-let g:go_fmt_experimental = 1
-let g:go_dispatch_enabled = 1
-
-let g:go_highlight_operators = 1
-let g:go_metalinter_autosave = 0
-
-let g:go_auto_type_info = 0
-let g:go_metalinter_excludes = [".*\.pb\.go","_test\.go"]
-let g:go_fmt_fail_silently = 1
-let g:go_list_type = "locationlist"
-" let g:go_list_type = "quickfix"
-let g:go_list_height = 5
-" let g:go_metalinter_deadline = "150s"
-"let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck','goconst','staticcheck','dupl','deadcode','ineffassign','megacheck','unconvert','misspell','vetshadow']
-"let g:go_metalinter_autosave_enabled = ['vet', 'golint']
-
-let g:go_list_type_commands = {"GoReferrers": "quickfix"}
-let g:go_alternate_mode = "vsplit"
-let g:go_autodetect_gopath = 1
-let g:go_get_update = 0
-" let g:go_debug=['shell-commands']
-let g:go_def_reuse_buffer = 0
-
-let g:go_debug_windows = {
-            \ 'vars':       'leftabove 30vnew',
-            \ }
-
-" \ 'out':        'botright 5new',
+""let g:go_auto_sameids = 0
+""au FileType go map <F5>  <esc>:GoRun<CR>
+""au FileType go set nolist
+""let g:go_jump_to_error = 1
+""let g:go_fmt_experimental = 1
+""let g:go_dispatch_enabled = 1
+""
+""let g:go_highlight_operators = 1
+""let g:go_metalinter_autosave = 0
+""
+""let g:go_auto_type_info = 0
+""let g:go_metalinter_excludes = [".*\.pb\.go","_test\.go"]
+""let g:go_fmt_fail_silently = 1
+""let g:go_list_type = "locationlist"
+""" let g:go_list_type = "quickfix"
+""let g:go_list_height = 5
+""" let g:go_metalinter_deadline = "150s"
+"""let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck','goconst','staticcheck','dupl','deadcode','ineffassign','megacheck','unconvert','misspell','vetshadow']
+"""let g:go_metalinter_autosave_enabled = ['vet', 'golint']
+""
+""let g:go_list_type_commands = {"GoReferrers": "quickfix"}
+""let g:go_alternate_mode = "vsplit"
+""let g:go_autodetect_gopath = 1
+""let g:go_get_update = 0
+""" let g:go_debug=['shell-commands']
+""let g:go_def_reuse_buffer = 0
+""
+""let g:go_debug_windows = {
+""            \ 'vars':       'leftabove 30vnew',
+""            \ }
+""
+""" \ 'out':        'botright 5new',
 nmap <silent> <leader>dt :GoDebugTest<Cr>
 nmap <silent> <leader>db :GoDebugBreakpoint<Cr>
 nmap <silent> <leader>dc :GoDebugContinue<Cr>
@@ -533,3 +533,55 @@ nmap <silent> <leader>ds :GoDebugStep<Cr>
 nmap <silent> <leader>dr :GoDebugReset<Cr>
 nmap <silent> <leader>dk :GoDebugStop<Cr>
 
+
+Bundle "buoto/gotests-vim"
+
+" new go experiments """""""""""""""""""""""""
+
+" gopls settings
+let g:go_gopls_gofumpt = 1
+let g:go_gopls_staticcheck = 1
+let g:go_gopls_analyses = 1
+let g:go_gopls_complete_unimported = 1
+let g:go_gopls_matcher = 'fuzzy'
+let g:go_gopls_use_placeholders = 1
+
+" Go fmt settings
+let g:go_fmt_command = "gopls"
+"let g:go_fmt_autosave = 1
+let g:go_imports_mode = 'gopls'
+
+" Go metalinter settings
+let g:go_metalinter_autosave = 0
+let g:go_metalinter_command='gopls'
+
+" Code highlighting settings
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_extra_types = 1
+
+" Terminal settings
+let g:go_term_enabled = 1
+let g:go_term_mode = "split"
+let g:go_term_reuse = 1
+
+" Code analysis settings
+"let g:go_auto_type_info = 1
+let g:go_list_type = "quickfix"
+let g:go_auto_sameids = 0
+"let g:go_def_mapping_enabled = 0
+
+" Misc vim-go settings
+let g:go_template_use_pkg = 1
+au FileType go set nolist
+
+augroup filetype
+  au! BufRead,BufNewFile *.proto setfiletype proto
+augroup end
+
+" Bundle "abolish.vim"   " crs change camel to json
+Bundle "repeat.vim"
+Bundle "chiedo/vim-case-convert"

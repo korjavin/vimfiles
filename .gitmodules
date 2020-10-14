@@ -103,3 +103,12 @@
 [submodule "bundle/vim-bracketed-paste"]
 	path = bundle/vim-bracketed-paste
 	url = https://github.com/ConradIrwin/vim-bracketed-paste.git
+[submodule "bundle/vim-case-convert"]
+	path = bundle/vim-case-convert
+	url = https://github.com/chiedo/vim-case-convert.git
+[submodule "bundle/gotests-vim"]
+	path = bundle/gotests-vim
+	url = https://github.com/buoto/gotests-vim.git
+[submodule "bundle/repeat.vim"]
+	path = bundle/repeat.vim
+	url = https://github.com/vim-scripts/repeat.vim.git
