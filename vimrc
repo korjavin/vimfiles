@@ -47,7 +47,7 @@ autocmd VimLeavePre * silent mksession! ~/tmp/vim/lastSession.vim
 "noremap <F7> :set hlsearch!<cr>
 " noremap <F8> :NERDTreeToggle<cr>
 noremap <S-F8> :NERDTreeMirror<cr>
-noremap <F9> :set list!<cr>
+noremap <S-F9> :set list!<cr>
 "map <F5> :set si! si?<CR>
 "imap <F5> :Sview<CR>
 "
@@ -371,6 +371,7 @@ nmap <silent> <leader>gc :GoCoverageToggle<CR>
 nmap <silent> <leader>gr :GoRename<CR>
 nmap <silent> <leader>gi :GoImports<CR>
 nmap <silent> <leader>gt :GoTest<CR>
+nmap <silent> <leader>gl :GoLint<CR>
 nmap <silent> <leader>ge :GoReferrers<CR>
 nmap <silent> <leader>gb :Gblame<CR>
 nmap <silent> <leader>gn :GoBuild<CR>
@@ -557,11 +558,11 @@ let g:go_metalinter_command='gopls'
 
 " Code highlighting settings
 let g:go_highlight_types = 1
-let g:go_highlight_fields = 1
+let g:go_highlight_fields = 0
 let g:go_highlight_functions = 1
 let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
-let g:go_highlight_extra_types = 1
+let g:go_highlight_build_constraints = 0
+let g:go_highlight_extra_types = 0
 
 " Terminal settings
 let g:go_term_enabled = 1
@@ -570,13 +571,18 @@ let g:go_term_reuse = 1
 
 " Code analysis settings
 "let g:go_auto_type_info = 1
-let g:go_list_type = "quickfix"
+let g:go_list_type = "locationlist"
 let g:go_auto_sameids = 0
 "let g:go_def_mapping_enabled = 0
 
 " Misc vim-go settings
 let g:go_template_use_pkg = 1
 au FileType go set nolist
+
+" My go settings again
+let g:go_alternate_mode = "vsplit"
+let g:go_list_type_commands = {"GoReferrers": "quickfix"}
+let g:go_metalinter_excludes = [".*\.pb\.go","_test\.go"]
 
 augroup filetype
   au! BufRead,BufNewFile *.proto setfiletype proto
@@ -585,3 +591,15 @@ augroup end
 " Bundle "abolish.vim"   " crs change camel to json
 Bundle "repeat.vim"
 Bundle "chiedo/vim-case-convert"
+
+" Bundle "Shougo/deoplete.nvim"
+" call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
+
+Bundle "majutsushi/tagbar"
+let g:tagbar_autoclose = 1
+noremap <F9> :TagbarToggle<cr>
+" map <F11> :colorscheme base16-gruvbox-light-medium<CR>
+let g:go_diagnostics_enabled=1
+let g:go_diagnostics_level = 1
+
+Bundle "pedrohdz/vim-yaml-folds"

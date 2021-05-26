@@ -1,7 +1,7 @@
 # Snippets for Go
 
 snippet lin "log info"
-logger.Infof("${0}",)
+log.Infof("${0}",)
 endsnippet
 
 snippet pin "log info"
@@ -9,7 +9,7 @@ log.Printf("[INFO] ${0}",)
 endsnippet
 
 snippet lwa "log warn"
-logger.Warnf("${0} %v",err)
+log.Warnf("${0} %v",err)
 endsnippet
 
 snippet pwa "log warn"
@@ -17,11 +17,19 @@ log.Printf("[WARN] ${0} %v",err)
 endsnippet
 
 snippet ler "log error"
-logger.Errorf("${0} %v",err)
+log.Errorf("${0} %v",err)
+endsnippet
+
+snippet lfa "log fatal"
+log.Fatalf("${0} %v",err)
 endsnippet
 
 snippet per "log error"
 log.Printf("[ERROR] ${0} %v",err)
+endsnippet
+
+snippet pfa "log error"
+log.Fatalf("[FATAL] ${0} %v",err)
 endsnippet
 
 snippet pne "print never"
@@ -52,7 +60,7 @@ if err!=nil {
 endsnippet
 
 snippet ldd "log debug"
-logger.Debugf("${1:${VISUAL}} = %v", $1)
+log.Debugf("${1:${VISUAL}} = %v", $1)
 endsnippet
 
 snippet pdd "log debug"
