@@ -332,7 +332,7 @@ highlight lCursor guifg=NONE guibg=Cyan
 nmap <silent> <leader>f :NERDTreeFind<CR>
 
 " Some support functions used by delimitmate, and snipmate
-Bundle 'vim-scripts/tlib'
+"Bundle 'vim-scripts/tlib'
 
 " Add smart commands for comments like:
 " gcc - Toggle comment for the current line
@@ -373,7 +373,7 @@ nmap <silent> <leader>gi :GoImports<CR>
 nmap <silent> <leader>gt :GoTest<CR>
 nmap <silent> <leader>gl :GoLint<CR>
 nmap <silent> <leader>ge :GoReferrers<CR>
-nmap <silent> <leader>gb :Gblame<CR>
+nmap <silent> <leader>gb :Git blame<CR>
 nmap <silent> <leader>gn :GoBuild<CR>
 nmap <silent> <leader>go :GoImplements<CR>
 nmap <silent> <leader>gma :GoMetaLinter --config=/home/iv/Projects/go/src/g.3pm.ai/docker-golangci/golangci-strict.yml <CR>
@@ -603,3 +603,5 @@ let g:go_diagnostics_enabled=1
 let g:go_diagnostics_level = 1
 
 Bundle "pedrohdz/vim-yaml-folds"
+" Bundle "codota/tabnine-vim"
+Bundle "amdt/vim-niji"
