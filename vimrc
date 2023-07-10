@@ -315,7 +315,7 @@ func GitGrep(...)
   exe s
   let &grepprg = save
 endfun
-command -nargs=? G call GitGrep(<f-args>)
+command -nargs=? GitGrep call GitGrep(<f-args>)
 
 "on the word under the cursor when Ctrl+X G is pressed.
 func GitGrepWord()
@@ -379,8 +379,8 @@ nmap <silent> <leader>go :GoImplements<CR>
 nmap <silent> <leader>gma :GoMetaLinter --config=/home/iv/Projects/go/src/g.3pm.ai/docker-golangci/golangci-strict.yml <CR>
 nmap <silent> <leader>gml :GoMetaLinter --config=/home/iv/Projects/go/src/g.3pm.ai/docker-golangci/golangci-strict-lib.yml <CR>
 
-nmap <silent> <leader>gj :%!python -m json.tool<CR>
-map <silent> <leader>jj :'<,'>!python -m json.tool<CR>
+nmap <silent> <leader>gj :%!python3 -m json.tool<CR>
+map <silent> <leader>jj :'<,'>!python3 -m json.tool<CR>
 nmap <silent> <leader>t0 :tabmove 0<CR>
 nmap <silent> <leader>t1 :tabmove -1<CR>
 nmap <silent> <leader>t2 :tabmove +1<CR>
@@ -478,7 +478,6 @@ Bundle "Shougo/denite.nvim"
 "let g:ale_linters = {'go': ['gofmt', 'golint', 'govet', 'remove_trailing_lines','trim_whitespace']}
 "let g:ale_go_golint_options = "-e Comment"
 
-" Plugin 'rust-lang/rust.vim'
 
 com! FormatXML :%!python3 -c "import xml.dom.minidom, sys; print(xml.dom.minidom.parse(sys.stdin).toprettyxml())"
 
@@ -542,7 +541,7 @@ Bundle "buoto/gotests-vim"
 " gopls settings
 let g:go_gopls_gofumpt = 1
 let g:go_gopls_staticcheck = 1
-let g:go_gopls_analyses = 1
+let g:go_gopls_analyses = v:null
 let g:go_gopls_complete_unimported = 1
 let g:go_gopls_matcher = 'fuzzy'
 let g:go_gopls_use_placeholders = 1
@@ -605,3 +604,44 @@ let g:go_diagnostics_level = 1
 Bundle "pedrohdz/vim-yaml-folds"
 " Bundle "codota/tabnine-vim"
 Bundle "amdt/vim-niji"
+Plugin 'hashivim/vim-terraform'
+" Plugin 'earthly/earthly.vim', { 'branch': 'main' }
+" au BufRead,BufNewFile Earthfile set filetype=Earthfile
+" au BufRead,BufNewFile build.earth set filetype=Earthfile
+Plugin 'christianrondeau/vim-base64'
+
+Plugin 'rust-lang/rust.vim'
+
+" Plugin 'prabirshrestha/vim-lsp'
+" if executable('rust-analyzer')
+"   au User lsp_setup call lsp#register_server({
+"         \   'name': 'Rust Language Server',
+"         \   'cmd': {server_info->['rust-analyzer']},
+"         \   'whitelist': ['rust'],
+"         \ })
+" endif
+" function! s:on_lsp_buffer_enabled() abort
+"     setlocal omnifunc=lsp#complete
+"     setlocal signcolumn=yes
+"     if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
+"     nmap <buffer> gd <plug>(lsp-definition)
+"     nmap <buffer> gs <plug>(lsp-document-symbol-search)
+"     nmap <buffer> gS <plug>(lsp-workspace-symbol-search)
+"     nmap <buffer> gr <plug>(lsp-references)
+"     nmap <buffer> gi <plug>(lsp-implementation)
+"     nmap <buffer> gt <plug>(lsp-type-definition)
+"     nmap <buffer> <leader>rn <plug>(lsp-rename)
+"     nmap <buffer> [g <plug>(lsp-previous-diagnostic)
+"     nmap <buffer> ]g <plug>(lsp-next-diagnostic)
+"     nmap <buffer> K <plug>(lsp-hover)
+"     nnoremap <buffer> <expr><c-f> lsp#scroll(+4)
+"     nnoremap <buffer> <expr><c-d> lsp#scroll(-4)
+"
+"     let g:lsp_format_sync_timeout = 1000
+"     autocmd! BufWritePre *.rs,*.go call execute('LspDocumentFormatSync')
+"     
+"     " refer to doc to add more commands
+" endfunction
+" let g:lsp_diagnostics_signs_enabled = 0
+
+Plugin 'tpope/vim-fireplace'
