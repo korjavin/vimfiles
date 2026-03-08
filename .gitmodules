@@ -73,3 +73,42 @@
 [submodule "bundle/vim-colors-solarized"]
 	path = bundle/vim-colors-solarized
 	url = https://github.com/altercation/vim-colors-solarized.git
+[submodule "bundle/base16-vim"]
+	path = bundle/base16-vim
+	url = https://github.com/chriskempson/base16-vim.git
+[submodule "bundle/ctrlp_bdelete.vim"]
+	path = bundle/ctrlp_bdelete.vim
+	url = https://github.com/d11wtq/ctrlp_bdelete.vim.git
+[submodule "bundle/denite.nvim"]
+	path = bundle/denite.nvim
+	url = https://github.com/Shougo/denite.nvim.git
+[submodule "bundle/gotests-vim"]
+	path = bundle/gotests-vim
+	url = https://github.com/buoto/gotests-vim.git
+[submodule "bundle/repeat.vim"]
+	path = bundle/repeat.vim
+	url = https://github.com/vim-scripts/repeat.vim.git
+[submodule "bundle/ultisnips"]
+	path = bundle/ultisnips
+	url = https://github.com/sirver/ultisnips.git
+[submodule "bundle/undotree"]
+	path = bundle/undotree
+	url = https://github.com/mbbill/undotree.git
+[submodule "bundle/vim-autoformat"]
+	path = bundle/vim-autoformat
+	url = https://github.com/Chiel92/vim-autoformat.git
+[submodule "bundle/vim-bracketed-paste"]
+	path = bundle/vim-bracketed-paste
+	url = https://github.com/ConradIrwin/vim-bracketed-paste.git
+[submodule "bundle/vim-case-convert"]
+	path = bundle/vim-case-convert
+	url = https://github.com/chiedo/vim-case-convert.git
+[submodule "bundle/vim-dispatch"]
+	path = bundle/vim-dispatch
+	url = https://github.com/tpope/vim-dispatch.git
+[submodule "bundle/vim-fugitive"]
+	path = bundle/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git
+[submodule "bundle/vim-niji"]
+	path = bundle/vim-niji
+	url = https://github.com/amdt/vim-niji.git
