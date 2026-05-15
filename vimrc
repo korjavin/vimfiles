@@ -277,25 +277,33 @@ let perl_extended_vars  = 1
 
 let g:vimwiki_list = [{'path': '~/.vimwiki/'}]
 
-"vundle
+" Vundle plugin manager
+"
+" Install (one-time):
+"   git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+" Then open vim and run :PluginInstall
+"
+" Note: this block uses the modern Vundle API (vundle#begin / Plugin / vundle#end).
+" The legacy API (vundle#rc / Bundle) was deprecated in 2014 and will throw
+" E117 / E492 errors with current Vundle.
 
 filetype off                   " required!
-set rtp+=~/.vim/bundle/vundle/
- call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim/
+call vundle#begin()
 
-Bundle 'gmarik/vundle'
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'molokai'
-"Bundle 'surround.vim'
-Bundle 'file-line'
-Bundle 'nelstrom/vim-mac-classic-theme.git'
-Bundle 'github:mattn/gist-vim.git'
-Bundle 'mattn/webapi-vim'
-Bundle 'mattn/pastebin-vim'
-Bundle 'vimwiki'
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'Lokaltog/vim-powerline'
+Plugin 'tomasr/molokai'
+"Plugin 'tpope/vim-surround'
+Plugin 'bogado/file-line'
+Plugin 'nelstrom/vim-mac-classic-theme'
+Plugin 'mattn/gist-vim'
+Plugin 'mattn/webapi-vim'
+Plugin 'mattn/pastebin-vim'
+Plugin 'vimwiki/vimwiki'
 "let g:vimwiki_url_maxsave = 0
 
-
+call vundle#end()
 filetype plugin indent on     " required!
 
 let g:gist_get_multiplefile = 1
