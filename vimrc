@@ -26,7 +26,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'vim-scripts/indenthtml.vim'
 Plugin 'junegunn/vim-easy-align'
-Plugin 'sjl/gundo.vim'
+Plugin 'mbbill/undotree'
 Plugin 'fatih/vim-go'
 Plugin 'vim-scripts/tlib'
 Plugin 'Raimondi/delimitMate'
@@ -161,7 +161,20 @@ autocmd VimLeavePre * silent mksession! ~/tmp/lastSession.vim
 " --- Plugins / toggles ---
 noremap <F8> :NERDTreeToggle<cr>
 noremap <F9> :set list!<cr>
-nnoremap <F7> :GundoToggle<CR>
+nnoremap <F7> :UndotreeToggle<CR>
+
+" --- Leader-number equivalents for the F-keys (keyboards without F-row) ---
+map <leader>1 :bprev<CR>
+map <leader>2 :bnext<CR>
+map <leader>3 :tabnew<CR>
+map <leader>4 :NERDTreeClose<CR>:Bdelete<CR>
+map <leader>6 :tabclose<cr>
+nnoremap <leader>7 :UndotreeToggle<CR>
+noremap <leader>8 :NERDTreeToggle<cr>
+noremap <leader>9 :set list!<cr>
+map <leader>0 :quitall<CR>
+" <leader>5 reuses the per-filetype <F5> run/compile mapping below.
+nmap <leader>5 <F5>
 
 map <S-DOWN> <DOWN>
 map <S-UP> <UP>
